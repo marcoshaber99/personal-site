@@ -1,11 +1,17 @@
-import { Header } from "@/components/header";
+import About from "@/components/about";
+import Blog from "@/components/blog";
+import Photography from "@/components/photography";
+import Projects from "@/components/projects";
+import WorkExp from "@/components/work-exp";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background flex justify-center">
-      <main className="w-full max-w-xl px-4 py-8">
-        <Header />
-      </main>
-    </div>
+    <main>
+      <About />
+      <Projects />
+      <WorkExp />
+      <Photography />
+      <Blog />
+    </main>
   );
 }

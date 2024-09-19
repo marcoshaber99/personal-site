@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export const socialLinks = [
   {
@@ -10,5 +10,10 @@ export const socialLinks = [
     name: "LinkedIn",
     href: "https://linkedin.com/in/marcohaber99",
     icon: FaLinkedin,
+  },
+  {
+    name: "Email",
+    href: "mailto:marcoshaber99@gmail.com",
+    icon: FaEnvelope,
   },
 ];
