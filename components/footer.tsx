@@ -1,29 +1,19 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
-import { footerLinks, footerText } from "@/data/content";
-import { IconType } from "react-icons";
+import { socialLinks } from "@/data/social-links";
+import { footerText } from "@/data/content";
 
-const iconMap: Record<string, IconType> = {
-  github: FaGithub,
-  linkedin: FaLinkedin,
-  email: FaEnvelope,
-};
-
-interface FooterLinkProps {
-  icon: string;
-  url: string;
-  label: string;
-}
-
-const FooterLink: React.FC<FooterLinkProps> = ({ icon, url, label }) => {
-  const Icon = iconMap[icon] || FaEnvelope; // Fallback to FaEnvelope if icon not found
+const FooterLink: React.FC<(typeof socialLinks)[number]> = ({
+  name,
+  href,
+  icon: Icon,
+}) => {
   return (
     <Link
-      href={url}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className="text-muted-foreground hover:text-foreground"
-      aria-label={label}
+      aria-label={name}
     >
       <Icon className="h-6 w-6" />
     </Link>
@@ -36,8 +26,8 @@ export default function Footer() {
       <div className="layout max-w-2xl mx-auto px-5 md:px-0">
         <div className="flex flex-col items-center justify-center space-y-2">
           <div className="flex space-x-4">
-            {footerLinks.map((link) => (
-              <FooterLink key={link.icon} {...link} />
+            {socialLinks.map((link) => (
+              <FooterLink key={link.name} {...link} />
             ))}
           </div>
           <p className="text-sm text-muted-foreground">
