@@ -26,7 +26,7 @@ function Photography() {
   return (
     <section className="mt-8 w-full">
       <h2 className="heading dark:text-green-400 mb-4">gallery</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {photographs.map((photo) => (
           <Card key={photo.id} className="overflow-hidden cursor-pointer">
             <CardContent
