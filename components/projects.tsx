@@ -10,7 +10,7 @@ export default function Projects() {
         {projects.map((project) => (
           <div
             key={project.title}
-            className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 border border-transparent hover:border-green-200/30"
+            className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 border hover:border-green-200/50 bg-background"
           >
             <div className="flex justify-between items-start mb-1">
               <h3 className="text-lg font-semibold">{project.title}</h3>

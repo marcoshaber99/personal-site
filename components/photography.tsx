@@ -28,10 +28,7 @@ function Photography() {
       <h2 className="heading dark:text-green-400 mb-4">gallery</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {photographs.map((photo) => (
-          <Card
-            key={photo.id}
-            className="overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105"
-          >
+          <Card key={photo.id} className="overflow-hidden cursor-pointer">
             <CardContent
               className="p-0 aspect-square"
               onClick={() => openLightbox(photo)}

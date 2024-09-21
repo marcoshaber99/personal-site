@@ -83,3 +83,23 @@ export const photographs: {
     height: 1600,
   },
 ];
+
+export const footerLinks = [
+  {
+    icon: "github",
+    url: "https://github.com/marcohaber99",
+    label: "GitHub",
+  },
+  {
+    icon: "linkedin",
+    url: "https://linkedin.com/in/marco-haber",
+    label: "LinkedIn",
+  },
+  {
+    icon: "email",
+    url: "mailto:marco.haber99@gmail.com",
+    label: "Email",
+  },
+];
+
+export const footerText = "Marco Haber. All rights reserved.";

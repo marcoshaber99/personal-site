@@ -8,7 +8,7 @@ export default function WorkExp() {
         {workExperience.map((job, index) => (
           <div
             key={index}
-            className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 border border-transparent hover:border-green-200/30"
+            className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 border hover:border-green-200/50 bg-background"
           >
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
               <h3 className="text-lg font-semibold mb-1 sm:mb-0">

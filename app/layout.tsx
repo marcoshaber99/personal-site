@@ -21,7 +21,7 @@ export default function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}
     >
-      <body className="flex flex-col min-h-screen bg-white dark:bg-black">
+      <body className="flex flex-col min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {/* Background grid and gradient */}
           <div className="fixed inset-0 bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.1] -z-10" />
