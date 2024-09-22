@@ -11,7 +11,7 @@ export default function About() {
         <Link
           href="/marco-haber-resume.pdf"
           download
-          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80 dark:text-green-400 dark:hover:text-green-400/80"
+          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80 dark:text-orange-300 dark:hover:text-orange-400/80"
         >
           Resume <DownloadIcon className="h-4 w-4" />
         </Link>

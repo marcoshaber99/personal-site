@@ -9,6 +9,8 @@ export const projects: {
   category: string;
   date: string;
   isPrivate: boolean;
+  logo: string;
+  logoDark?: string;
 }[] = [
   {
     title: "Harmony",
@@ -19,6 +21,8 @@ export const projects: {
     category: "Web Application",
     date: "2023-06",
     isPrivate: false,
+    logo: "/infinity.svg",
+    logoDark: "/infinity-dark.svg",
   },
   {
     title: "ProfitScan",
@@ -26,6 +30,8 @@ export const projects: {
     category: "Web Application",
     date: "2023-09",
     isPrivate: true,
+    logo: "/barcode.svg",
+    logoDark: "/barcode-dark.svg",
   },
 ];
 

@@ -24,7 +24,7 @@ function Photography() {
   };
 
   return (
-    <section className="mt-8 w-full">
+    <section className="mt-12 w-full">
       <h2 className="heading dark:text-green-400 mb-4">gallery</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {photographs.map((photo) => (
