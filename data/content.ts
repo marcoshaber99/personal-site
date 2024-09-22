@@ -85,3 +85,9 @@ export const photographs: {
 ];
 
 export const footerText = "Marco Haber. All rights reserved.";
+
+export const skills: Record<string, string[]> = {
+  Languages: ["JavaScript", "TypeScript", "Python", "HTML", "CSS", "SQL"],
+  Frameworks: ["React JS", "Next JS", "Node JS", "Express JS", "TailwindCSS"],
+  "Software Skills": ["Git", "GitHub", "Figma", "AWS (S3)"],
+};
