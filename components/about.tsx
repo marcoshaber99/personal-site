@@ -1,6 +1,9 @@
+"use client";
+
 import { about } from "@/data/content";
 import Link from "next/link";
 import { DownloadIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -11,9 +14,15 @@ export default function About() {
         <Link
           href="/marco-haber-resume.pdf"
           download
-          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80 dark:text-orange-300 dark:hover:text-orange-400/80"
+          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-500"
         >
-          Resume <DownloadIcon className="h-4 w-4" />
+          Resume{" "}
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.2 }}
+          >
+            <DownloadIcon className="h-4 w-4" />
+          </motion.div>
         </Link>
       </div>
     </div>
