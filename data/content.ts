@@ -88,6 +88,34 @@ export const photographs: {
     width: 1200,
     height: 1600,
   },
+  {
+    id: 5,
+    src: "/images/human-bird.JPEG",
+    alt: "Human-Bird Photoshop Manipulation",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    id: 6,
+    src: "/images/jeeps.JPEG",
+    alt: "Jeeps",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    id: 7,
+    src: "/images/road-love.JPEG",
+    alt: "Road Love",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    id: 8,
+    src: "/images/fire.JPG",
+    alt: "Fire",
+    width: 1200,
+    height: 1600,
+  },
 ];
 
 export const footerText = "Marco Haber. All rights reserved.";
