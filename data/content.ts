@@ -136,7 +136,7 @@ export const blogPosts: {
   {
     title: "Using Custom Hooks for Better React State Management",
     slug: "custom-hooks",
-    date: "2024-10-25",
+    date: "2024-09-25",
     readTime: 5,
     excerpt:
       "Learn how to use custom hooks to simplify state management in your React apps and make your code more reusable.",
