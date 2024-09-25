@@ -125,3 +125,20 @@ export const skills: Record<string, string[]> = {
   Frameworks: ["React JS", "Next JS", "Node JS", "Express JS", "TailwindCSS"],
   "Software Skills": ["Git", "GitHub", "Figma", "AWS (S3)"],
 };
+
+export const blogPosts: {
+  title: string;
+  slug: string;
+  date: string;
+  readTime: number;
+  excerpt: string;
+}[] = [
+  {
+    title: "Using Custom Hooks for Better React State Management",
+    slug: "custom-hooks",
+    date: "2024-10-25",
+    readTime: 5,
+    excerpt:
+      "Learn how to use custom hooks to simplify state management in your React apps and make your code more reusable.",
+  },
+];

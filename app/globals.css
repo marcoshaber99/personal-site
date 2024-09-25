@@ -84,3 +84,31 @@
 .subheading {
   @apply font-mono text-base font-medium tracking-wide;
 }
+
+.spacer-sm {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.spacer-md {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.spacer-lg {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* Add these new styles */
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+
+pre {
+  position: relative;
+  overflow-x: auto;
+}
+
+pre > code {
+  display: block;
+  padding: 1em;
+}

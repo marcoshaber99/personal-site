@@ -11,13 +11,13 @@ export default function Skills() {
   return (
     <section className="mt-8 w-full">
       <h2 className="heading dark:text-green-400 mb-6">skills</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {Object.entries(skills).map(([category, skillList]) => (
           <div
             key={category}
-            className="group bg-gray-100 dark:bg-secondary/50 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-secondary/70 transition-colors duration-300"
+            className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 border hover:border-green-200/50 bg-background"
           >
-            <h4 className="text-base font-medium mb-3 text-primary  dark:text-orange-400">
+            <h4 className="text-base font-medium mb-3 text-primary dark:text-orange-400">
               {category}
             </h4>
             <div
