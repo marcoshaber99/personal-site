@@ -3,11 +3,16 @@ import { blogPosts } from "@/data/content";
 import { ArrowRightIcon } from "lucide-react";
 
 export default function Blog() {
+  // Sort blog posts by date in descending order
+  const sortedPosts = [...blogPosts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
   return (
     <section className="mt-8 w-full">
       <h2 className="heading dark:text-green-400 mb-6">blog</h2>
       <div className="space-y-4">
-        {blogPosts.map((post) => (
+        {sortedPosts.map((post) => (
           <div
             key={post.slug}
             className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 border hover:border-green-200/50 bg-background"

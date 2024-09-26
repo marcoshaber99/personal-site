@@ -10,8 +10,11 @@ import Footer from "@/components/footer";
 import { Background } from "@/components/bg-gradient";
 
 export const metadata: Metadata = {
-  title: "Marco Haber - Portfolio",
-  description: "Personal portfolio of Marco Haber",
+  title: {
+    default: "Marco Haber - Portfolio",
+    template: "%s | Marco Haber",
+  },
+  description: "Personal portfolio and blog of Marco Haber",
 };
 
 export default function RootLayout({
