@@ -19,8 +19,7 @@ In this guide, I will walk you through the main concepts of the App Router, with
 
 <Spacer size="small" />
 
-If you haven't used the App Router yet and you also like watching paint dry, then you're in the right place.<br />
-I'm joking, <Wobbly>kind of</Wobbly>.
+If you haven't used the App Router yet and you also like watching paint dry, then you're in the right place.I'm joking, <Wobbly>kind of</Wobbly>.
 
 <Spacer size="small" />
 
@@ -41,9 +40,6 @@ The App Router uses a file-based routing system, where <Emphasis color="green">f
 <Spacer size="medium" />
 ### 1. File Conventions
 
-Brace yourself for some thrilling file naming conventions. I know, contain your excitement.
-
-<Spacer size="small" />
 We have some special files that serve specific purposes:
 
 <Spacer size="small" />
@@ -87,11 +83,6 @@ This `page.tsx` file creates a route for a blog listing page.
 ### 2. Layouts
 
 Layouts allow us to <Italic><Underline>create shared UI</Underline></Italic> that wraps multiple pages. They're useful for maintaining consistent navigation, headers, or footers across our app.
-
-<Spacer size="small" />
-This approach allows for <Italic>nested layouts</Italic>, giving you control
-over the structure of your app. It's like Russian nesting dolls, but for your
-UI.
 
 <Spacer size="small" />
 Create a root layout:
@@ -147,7 +138,8 @@ Dynamic routes allow you to create pages that can match multiple URLs based on d
 
 #### Convention
 
-A dynamic segment is created by wrapping a folder's name in square brackets: `[folderName]`. For example, `[id]` or `[slug]`.
+A dynamic segment is created by wrapping a folder's name in square brackets: `[folderName]`. <br />
+For example, `[id]` or `[slug]`.
 
 <Spacer size="medium" />
 
@@ -264,9 +256,6 @@ app / shop / [[...slug]] / page.tsx;
 
 - Matches <Emphasis color="blue">zero or more segments</Emphasis> after the base path
 - Also matches the root path (`/shop`)
-- <Underline>
-    Use when you want to handle both root and nested paths in one component
-  </Underline>
 
 <Spacer size="medium" />
 **Example use case:** E-commerce category pages
@@ -305,10 +294,6 @@ export default function ShopPage({ params }: { params: { slug?: string[] } }) {
 
 <Spacer size="small" />
 
-Because sometimes, you just can't decide if you want to catch them all or not, and I'm not talking about Pokémon.
-
-<Spacer size="small" />
-
 Play with the demo below to see how they work:
 
 <CatchAllDemo />
@@ -317,7 +302,7 @@ Play with the demo below to see how they work:
 
 ### 6. Parallel Routes
 
-Parallel routes allow you to render multiple pages simultaneously within the same layout. This is useful for creating UIs with independent navigation, such as dashboards or social media feeds.<Highlighter>
+Parallel routes allow you to render multiple pages simultaneously within the same layout. This is useful for creating UIs with independent navigation, like dashboards or social media feeds.<Highlighter>
 Parallel routes are like having multiple TV channels displayed on your screen at the same time.</Highlighter>
 
 <Spacer size="small" />
@@ -332,7 +317,7 @@ overall layout.
 
 - Use the `@folder` convention to create named slots (e.g., `@dashboard`, `@feed`)
   <Spacer size="small" />
-- <Underline>Slots are passed as props to the parent layout</Underline>
+- <u>Slots are passed as props to the parent layout</u>
   <Spacer size="small" />
 - Enables conditional rendering based on user roles or other factors
 

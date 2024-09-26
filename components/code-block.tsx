@@ -36,7 +36,7 @@ export function CodeBlock({
 
   return (
     <div className="relative group">
-      <pre className={`${className} overflow-x-auto text-lg`}>
+      <pre className={`${className} overflow-x-auto`}>
         <code className="text-base">{children}</code>
       </pre>
       <Button
