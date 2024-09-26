@@ -136,8 +136,8 @@ export const blogPosts: {
   {
     title: "Next.js App Router: A Practical Guide",
     slug: "nextjs-routing",
-    date: "2023-09-26",
-    readTime: 10,
+    date: "2024-09-26",
+    readTime: 9,
     excerpt:
       "Learn the basics of Next.js App Router and how to use it to structure and organize your React applications.",
   },
