@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import { ExternalLink } from "lucide-react";
-import { CodeBlock } from "@/components/codeblock";
+import { CodeBlock } from "./components/codeblock"; // Update this line
 import { Wobbly } from "@/components/wobbly";
 
 const Spacer = ({
