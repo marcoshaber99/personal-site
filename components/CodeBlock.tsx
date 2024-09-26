@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 import { Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const CodeBlock = ({
+export function CodeBlock({
   className,
   children,
 }: {
   className?: string;
   children: React.ReactNode;
-}) => {
+}) {
   const [isCopied, setIsCopied] = useState(false);
 
   const getTextContent = (node: React.ReactNode): string => {
@@ -53,6 +53,4 @@ const CodeBlock = ({
       </Button>
     </div>
   );
-};
-
-export default CodeBlock;
+}
