@@ -141,4 +141,12 @@ export const blogPosts: {
     excerpt:
       "Learn the basics of Next.js App Router and how to use it to structure and organize your React applications.",
   },
+  {
+    title: "React Context: An Introduction",
+    slug: "react-context-guide",
+    date: "2024-10-01", // You can adjust this date
+    readTime: 6, // Estimate the read time
+    excerpt:
+      "Learn how to use React Context for state management in your React applications.",
+  },
 ];

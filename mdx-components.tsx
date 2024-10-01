@@ -80,16 +80,7 @@ const Highlighter = ({
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     code: ({ className, children }) => {
-      if (className?.includes("language-")) {
-        return (
-          <CodeBlock className={className}>{children as string}</CodeBlock>
-        );
-      }
-      return (
-        <code className="text-[#24292e] dark:text-[#d6deeb] px-1 py-0.5 rounded bg-gray-100 dark:bg-gray-800">
-          {children}
-        </code>
-      );
+      return <CodeBlock className={className}>{children as string}</CodeBlock>;
     },
     h1: ({ children }) => (
       <h1 className="text-3xl font-bold mt-4 mb-4 font-mono">{children}</h1>
