@@ -74,7 +74,7 @@ pids
 .com.apple.timemachine.donotpresent
 
 # Fonts
-app/fonts/*.otf
-app/fonts/*.ttf
-app/fonts/*.woff
-app/fonts/*.woff2
+public/fonts/*.otf
+public/fonts/*.ttf
+public/fonts/*.woff
+public/fonts/*.woff2
