@@ -3,27 +3,27 @@ import localFont from "next/font/local";
 export const ppEditorialNew = localFont({
   src: [
     {
-      path: "../public/fonts/PPEditorialNew-Regular.otf",
+      path: "../app/fonts/PPEditorialNew-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/PPEditorialNew-Italic.otf",
+      path: "../app/fonts/PPEditorialNew-Italic.otf",
       weight: "400",
       style: "italic",
     },
     {
-      path: "../public/fonts/PPEditorialNew-Ultrabold.otf",
+      path: "../app/fonts/PPEditorialNew-Ultrabold.otf",
       weight: "800",
       style: "normal",
     },
     {
-      path: "../public/fonts/PPEditorialNew-UltraboldItalic.otf",
+      path: "../app/fonts/PPEditorialNew-UltraboldItalic.otf",
       weight: "800",
       style: "italic",
     },
     {
-      path: "../public/fonts/PPEditorialNew-Ultralight.otf",
+      path: "../app/fonts/PPEditorialNew-Ultralight.otf",
       weight: "200",
       style: "normal",
     },
