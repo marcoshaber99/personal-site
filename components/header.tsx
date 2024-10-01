@@ -14,13 +14,16 @@ export function Header() {
   return (
     <div className="flex items-center justify-between mb-8">
       <header>
-        <Link href="/" className="text-3xl font-pp-italic">
+        <Link
+          href="/"
+          className="text-xl sm:text-2xl md:text-3xl font-pp-italic"
+        >
           Marco Haber
         </Link>
       </header>
       <nav className="flex items-center">
         <ul
-          className="flex space-x-2 mr-10"
+          className="flex space-x-1 sm:space-x-2 mr-2 sm:mr-4 md:mr-10"
           onMouseLeave={() => setHoveredLink(null)}
         >
           {socialLinks.map((link) => (
@@ -55,7 +58,7 @@ export function Header() {
                 })}
                 onMouseEnter={() => setHoveredLink(link.name)}
               >
-                <link.icon className="h-5 w-5" />
+                <link.icon className="h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
             </li>
           ))}
