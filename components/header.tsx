@@ -16,9 +16,10 @@ export function Header() {
       <header>
         <Link
           href="/"
-          className="text-xl sm:text-2xl md:text-3xl font-pp-italic"
+          className="text-xl sm:text-2xl md:text-3xl font-pp-italic relative group"
         >
           Marco Haber
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-800 dark:bg-gray-200 transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </header>
       <nav className="flex items-center">

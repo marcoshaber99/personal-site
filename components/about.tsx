@@ -14,7 +14,7 @@ export default function About() {
         <Link
           href="/marco-haber-resume.pdf"
           download
-          className="mt-4 inline-flex items-center gap-1 font-pp-regular text-lg text-primary transition-colors tracking-widehover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-500"
+          className="mt-4 inline-flex items-center gap-2 font-pp-italic text-lg text-primary transition-colors tracking-wide hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-300 pb-1"
         >
           Resume{" "}
           <motion.div
