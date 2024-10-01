@@ -1,10 +1,9 @@
 import type { Config } from "tailwindcss";
-const svgToDataUri = require("mini-svg-data-uri");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+import type { PluginAPI } from "tailwindcss/types/config";
+import svgToDataUri from "mini-svg-data-uri";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -80,6 +79,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
+        ppEditorialNew: ["var(--font-pp-editorial-new)"],
       },
     },
   },
@@ -87,10 +87,10 @@ const config = {
     require("tailwindcss-animate"),
     require("@tailwindcss/typography"),
     addVariablesForColors,
-    function ({ matchUtilities, theme }: any) {
+    function ({ matchUtilities, theme }: PluginAPI) {
       matchUtilities(
         {
-          "bg-grid-small": (value: any) => ({
+          "bg-grid-small": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
@@ -99,17 +99,57 @@ const config = {
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) {
+      const newUtilities = {
+        ".font-pp-regular": {
+          fontFamily: "var(--font-pp-editorial-new)",
+          fontWeight: "400",
+          fontStyle: "normal",
+        },
+        ".font-pp-italic": {
+          fontFamily: "var(--font-pp-editorial-new)",
+          fontWeight: "400",
+          fontStyle: "italic",
+        },
+        ".font-pp-ultrabold": {
+          fontFamily: "var(--font-pp-editorial-new)",
+          fontWeight: "800",
+          fontStyle: "normal",
+        },
+        ".font-pp-ultrabold-italic": {
+          fontFamily: "var(--font-pp-editorial-new)",
+          fontWeight: "800",
+          fontStyle: "italic",
+        },
+        ".font-pp-ultralight": {
+          fontFamily: "var(--font-pp-editorial-new)",
+          fontWeight: "200",
+          fontStyle: "normal",
+        },
+      };
+      addUtilities(newUtilities);
+    },
   ],
-} satisfies Config;
+};
 
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
+function addVariablesForColors({
+  addBase,
+  theme,
+}: {
+  addBase: (base: Record<string, Record<string, string>>) => void;
+  theme: (path: string) => Record<string, string>;
+}) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
 
   addBase({
-    ":root": newVars,
+    ":root": newVars as Record<string, string>,
   });
 }
 

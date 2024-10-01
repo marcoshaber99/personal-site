@@ -72,3 +72,9 @@ pids
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+# Fonts
+app/fonts/*.otf
+app/fonts/*.ttf
+app/fonts/*.woff
+app/fonts/*.woff2

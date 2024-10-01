@@ -5,6 +5,7 @@ import "./prism-theme.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { ppEditorialNew } from "@/lib/fonts";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Background } from "@/components/bg-gradient";
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${ppEditorialNew.variable} font-sans`}
     >
       <body className="flex flex-col min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>

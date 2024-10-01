@@ -14,7 +14,7 @@ export function Header() {
   return (
     <div className="flex items-center justify-between mb-8">
       <header>
-        <Link href="/" className="text-xl font-semibold">
+        <Link href="/" className="text-3xl font-pp-italic">
           Marco Haber
         </Link>
       </header>
