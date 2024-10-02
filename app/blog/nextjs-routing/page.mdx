@@ -43,18 +43,64 @@ The App Router uses a file-based routing system, where <Emphasis color="green">f
 We have some special files that serve specific purposes:
 
 <Spacer size="small" />
-- `page.tsx`: Defines a route and makes it publicly accessible
-<Spacer size="small" />
-- `layout.tsx`: Creates shared layouts for a segment and its children
-<Spacer size="small" />
-- `loading.tsx`: Creates loading UI for a segment and its children
-<Spacer size="small" />
-- `error.tsx`: Creates error UI for a segment and its children
-<Spacer size="small" />
-- `not-found.tsx`: Creates UI for not found pages
+<div className="overflow-x-auto">
+  <table className="min-w-full border-collapse rounded-lg">
+    <thead>
+      <tr className="bg-gray-100 dark:bg-gray-800">
+        <th className="border p-2 text-left">File</th>
+        <th className="border p-2 text-left">Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="border p-2">
+          <code>page.tsx</code>
+        </td>
+        <td className="border p-2">
+          Defines a route and makes it publicly accessible
+        </td>
+      </tr>
+      <tr>
+        <td className="border p-2">
+          <code>layout.tsx</code>
+        </td>
+        <td className="border p-2">
+          Creates shared layouts for a segment and its children
+        </td>
+      </tr>
+      <tr>
+        <td className="border p-2">
+          <code>loading.tsx</code>
+        </td>
+        <td className="border p-2">
+          Creates loading UI for a segment and its children
+        </td>
+      </tr>
+      <tr>
+        <td className="border p-2">
+          <code>error.tsx</code>
+        </td>
+        <td className="border p-2">
+          Creates error UI for a segment and its children
+        </td>
+      </tr>
+      <tr>
+        <td className="border p-2">
+          <code>not-found.tsx</code>
+        </td>
+        <td className="border p-2">Creates UI for not found pages</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <Spacer size="medium" />
 
-Example of a basic `page.tsx`:
+{" "}
+
+<h4 className="text-lg font-semibold mb-2">
+  Example of a basic <code>page.tsx</code>:
+</h4>
 
 ```typescript
 import { getLatestPosts } from "@/lib/api";
@@ -76,7 +122,9 @@ export default async function BlogPage() {
 ```
 
 <Spacer size="small" />
-This `page.tsx` file creates a route for a blog listing page.
+<p className="text-sm">
+  This <code>page.tsx</code> file creates a route for a blog listing page.
+</p>
 
 <Spacer size="large" />
 
@@ -138,8 +186,14 @@ Dynamic routes allow you to create pages that can match multiple URLs based on d
 
 #### Convention
 
-A dynamic segment is created by wrapping a folder's name in square brackets: `[folderName]`. <br />
-For example, `[id]` or `[slug]`.
+A dynamic segment is created by wrapping a folder's name in square brackets: **[folderName]**
+
+<Spacer size="small" />
+
+For example:
+
+- **[id]**
+- **[slug]**
 
 <Spacer size="medium" />
 
@@ -157,7 +211,7 @@ app/
 ```
 
 <Spacer size="small" />
-In this structure, `[slug]` is a dynamic segment that can match any value in the
+In this structure, **[slug]** is a dynamic segment that can match any value in the
 URL.
 
 <Spacer size="small" />
@@ -179,14 +233,16 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
 This will match routes like:
 
-- `/blog/hello` → `{ slug: 'hello' }`
-- `/blog/world` → `{ slug: 'world' }`
+```
+/blog/hello  →  { slug: 'hello' }
+/blog/world  →  { slug: 'world' }
+```
 
 <Spacer size="large" />
 
 #### Fetching Data
 
-In practice, you'd typically fetch data based on the `slug`.
+In practice, you'd typically fetch data based on the **_slug_**.
 
 <Spacer size="small" />
 
@@ -218,7 +274,7 @@ export default async function BlogPost({
 <Spacer size="small" />
 
 <Emphasis color="green">➡️ Remember: </Emphasis> Dynamic segments are passed as the
-`params` prop to layout, page, route, and generateMetadata functions.
+**_params_** prop to layout, page, route, and generateMetadata functions.
 
 <Spacer size="large" />
 
@@ -228,42 +284,42 @@ Catch-all segments let you match multiple parts of a URL in one dynamic route. T
 
 <Spacer size="medium" />
 
-#### ↳ Catch-all Segments (`[...slug]`)
+#### ↳ Catch-all Segments
 
 ```typescript
 app / shop / [...slug] / page.tsx;
 ```
 
 - Matches one or more segments after the base path
-- <Emphasis color="red">Does not match the root path (`/shop`)</Emphasis>
+- <Emphasis color="red">Does not match the root path (/shop)</Emphasis>
 - Use when you always expect at least one segment
 
 <Spacer size="medium" />
-**Example use case:** Documentation site with nested categories:
+**Example use case:**
 <Spacer size="small" />
 
-- `/docs/react`
-- `/docs/react/hooks`
-- `/docs/react/hooks/useEffect`
+- /docs/react
+- /docs/react/hooks
+- /docs/react/hooks/useEffect
 
-<Spacer size="medium" />
+<Spacer size="large" />
 
-#### ↳ Optional Catch-all Segments (`[[...slug]]`)
+#### ↳ Optional Catch-all Segments
 
 ```typescript
 app / shop / [[...slug]] / page.tsx;
 ```
 
 - Matches <Emphasis color="blue">zero or more segments</Emphasis> after the base path
-- Also matches the root path (`/shop`)
+- Also matches the root path (/shop)
 
 <Spacer size="medium" />
-**Example use case:** E-commerce category pages
+**Example use case:**
 <Spacer size="small" />
 
-- `/shop` (all products)
-- `/shop/clothing`
-- `/shop/clothing/shirts`
+- /shop (all products)
+- /shop/clothing
+- /shop/clothing/shirts
 
 <Spacer size="medium" />
 
@@ -287,9 +343,8 @@ export default function ShopPage({ params }: { params: { slug?: string[] } }) {
 
 <Spacer size="small" />
 <Emphasis color="green">
-  🔐 The key difference is that optional catch-all segments allow you to handle
-  the root path and nested paths in the same component, providing more
-  flexibility when you need to support both scenarios.
+  🔐 Optional catch-all segments offer more flexibility by handling both root
+  and nested paths in one component, unlike regular catch-all segments.
 </Emphasis>
 
 <Spacer size="small" />
@@ -314,14 +369,16 @@ overall layout.
 <Emphasis>Key Concepts:</Emphasis>
 
 <Spacer size="small" />
+<ul className="list-disc pl-8 space-y-2">
+  <li>
+    Use the <code>@folder</code> convention to create named slots (e.g.,{" "}
+    <code>@dashboard</code>, <code>@feed</code>)
+  </li>
+  <li>Slots are passed as props to the parent layout</li>
+  <li>Enables conditional rendering based on user roles or other factors</li>
+</ul>
 
-- Use the `@folder` convention to create named slots (e.g., `@dashboard`, `@feed`)
-  <Spacer size="small" />
-- <u>Slots are passed as props to the parent layout</u>
-  <Spacer size="small" />
-- Enables conditional rendering based on user roles or other factors
-
-<Spacer size="small" />
+<Spacer size="medium" />
 
 Here's a simple example of how parallel routes can be structured:
 
