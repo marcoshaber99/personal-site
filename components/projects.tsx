@@ -36,23 +36,24 @@ export default function Projects() {
                     {project.title}
                   </h3>
                   <div className="flex space-x-2 mb-2 sm:mb-0">
-                    {project.isPrivate && (
+                    {project.isPrivate ? (
                       <span
                         title="Private Project"
                         className="text-muted-foreground hover:text-foreground"
                       >
                         <FaLock className="h-4 w-4" />
                       </span>
-                    )}
-                    {project.github && !project.isPrivate && (
-                      <Link
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground"
-                      >
-                        <FaGithub className="h-4 w-4" />
-                      </Link>
+                    ) : (
+                      project.github && (
+                        <Link
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground"
+                        >
+                          <FaGithub className="h-4 w-4" />
+                        </Link>
+                      )
                     )}
                     {project.link && (
                       <Link

@@ -27,6 +27,7 @@ export const projects: {
   {
     title: "ProfitScan",
     description: "Financial Analysis Tool built with Python and Streamlit.",
+    link: "https://profit-scan-peach.vercel.app",
     category: "Web Application",
     date: "2023-09",
     isPrivate: true,
