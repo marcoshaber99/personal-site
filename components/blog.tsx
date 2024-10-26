@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { blogPosts } from "@/data/content";
 import { ArrowRightIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Blog() {
   // Sort blog posts by date in descending order
@@ -9,29 +12,53 @@ export default function Blog() {
   );
 
   return (
-    <section className="mt-8 w-full">
-      <h2 className="heading dark:text-green-400 mb-6">blog</h2>
-      <div className="space-y-4">
-        {sortedPosts.map((post) => (
-          <div
+    <section className="relative">
+      {/* Section Title with decorative line and gradient */}
+      <div className="flex items-center gap-4 mb-8">
+        <h2 className="text-2xl font-medium tracking-tight">Blog</h2>
+        <div className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800" />
+      </div>
+
+      <div className="grid gap-4">
+        {sortedPosts.map((post, index) => (
+          <motion.div
             key={post.slug}
-            className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 border hover:border-green-200/50 bg-background"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="group relative"
           >
-            <Link href={`/blog/${post.slug}`} className="block">
-              <h3 className="text-base font-medium text-primary group-hover:text-blue-600 dark:text-blue-400 dark:group-hover:text-blue-500 transition-colors">
-                {post.title}
-              </h3>
-              <p className="text-xs text-muted-foreground mt-1">
-                {post.date} • {post.readTime} min read
-              </p>
-              <p className="text-sm dark:text-neutral-400 mt-2 line-clamp-2">
-                {post.excerpt}
-              </p>
-              <span className="inline-flex items-center gap-1 text-xs font-medium text-primary group-hover:text-blue-600 dark:text-blue-400 dark:group-hover:text-blue-500 transition-colors mt-2">
-                Read more <ArrowRightIcon className="h-3 w-3" />
-              </span>
+            {/* Subtle hover effect background */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neutral-100 dark:from-neutral-800/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            <Link
+              href={`/blog/${post.slug}`}
+              className="relative block rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700"
+            >
+              <div className="space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <h3 className="text-lg font-medium group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                    {post.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-xs text-neutral-500">
+                    <span>{post.date}</span>
+                    <span>•</span>
+                    <span>{post.readTime} min read</span>
+                  </div>
+                </div>
+
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+                  {post.excerpt}
+                </p>
+
+                <div className="flex items-center text-sm text-green-600 dark:text-green-400 group-hover:translate-x-1 transition-transform duration-200">
+                  Read more
+                  <ArrowRightIcon className="ml-1 h-4 w-4" />
+                </div>
+              </div>
             </Link>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

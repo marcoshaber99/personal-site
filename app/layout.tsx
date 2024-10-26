@@ -26,15 +26,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${ppEditorialNew.variable} font-sans`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${ppEditorialNew.variable} font-sans scroll-smooth`}
     >
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Background />
           <div className="relative z-10 flex-grow">
-            <div className="layout max-w-2xl mx-auto px-5 md:px-0">
+            <div className="mx-auto max-w-4xl px-6 py-16 sm:px-8">
               <Header />
-              <main className="my-10">{children}</main>
+              <main className="mt-16">{children}</main>
             </div>
           </div>
           <Footer />

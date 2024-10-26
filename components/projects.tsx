@@ -1,46 +1,61 @@
+"use client";
+
 import { projects } from "@/data/content";
 import { FaGithub, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <section className="mt-8 w-full">
-      <h2 className="heading dark:text-green-400 mb-4">projects</h2>
-      <div className="space-y-3">
-        {projects.map((project) => (
-          <div
+    <section className="relative">
+      {/* Section Title with decorative line and gradient */}
+      <div className="flex items-center gap-4 mb-8">
+        <h2 className="text-2xl font-medium tracking-tight">Projects</h2>
+        <div className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800" />
+      </div>
+
+      <div className="grid gap-6">
+        {projects.map((project, index) => (
+          <motion.div
             key={project.title}
-            className="group rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-4 border hover:border-green-200/50 bg-background"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="group relative"
           >
-            <div className="flex flex-col sm:flex-row items-start sm:items-center">
-              <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-6 w-12 h-12 sm:w-12 sm:h-12 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-3xl p-3">
-                <Image
-                  src={project.logo}
-                  alt={`${project.title} logo`}
-                  width={30}
-                  height={30}
-                  className="rounded-full object-contain dark:hidden"
-                />
-                <Image
-                  src={project.logoDark || project.logo}
-                  alt={`${project.title} logo`}
-                  width={30}
-                  height={30}
-                  className="rounded-full object-contain hidden dark:block"
-                />
+            {/* Subtle hover effect background */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neutral-100 dark:from-neutral-800/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            <div className="relative flex flex-col sm:flex-row gap-6 rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700">
+              {/* Project Logo */}
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-neutral-100 dark:bg-neutral-800/50 p-2.5 flex items-center justify-center">
+                  <Image
+                    src={project.logo}
+                    alt={`${project.title} logo`}
+                    width={30}
+                    height={30}
+                    className="object-contain dark:hidden"
+                  />
+                  <Image
+                    src={project.logoDark || project.logo}
+                    alt={`${project.title} logo`}
+                    width={30}
+                    height={30}
+                    className="object-contain hidden dark:block"
+                  />
+                </div>
               </div>
-              <div className="flex-grow w-full sm:w-auto">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-1">
-                  <h3 className="text-lg font-semibold mb-2 sm:mb-0">
-                    {project.title}
-                  </h3>
-                  <div className="flex space-x-2 mb-2 sm:mb-0">
+
+              {/* Project Details */}
+              <div className="flex-grow space-y-3">
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-lg font-medium">{project.title}</h3>
+                  <div className="flex gap-3 text-neutral-600 dark:text-neutral-400">
                     {project.isPrivate ? (
-                      <span
-                        title="Private Project"
-                        className="text-muted-foreground hover:text-foreground"
-                      >
+                      <span title="Private Project">
                         <FaLock className="h-4 w-4" />
                       </span>
                     ) : (
@@ -49,7 +64,7 @@ export default function Projects() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground"
+                          className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
                         >
                           <FaGithub className="h-4 w-4" />
                         </Link>
@@ -60,24 +75,26 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground"
+                        className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
                       >
                         <FaExternalLinkAlt className="h-4 w-4" />
                       </Link>
                     )}
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground mb-2">
+
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm">
                   {project.description}
                 </p>
-                <div className="flex items-center text-xs text-muted-foreground">
-                  <span className="whitespace-nowrap">{project.category}</span>
-                  <div className="flex-grow h-px bg-border mx-2"></div>
-                  <span className="whitespace-nowrap">{project.date}</span>
+
+                <div className="flex items-center text-xs text-neutral-500 dark:text-neutral-500">
+                  <span>{project.category}</span>
+                  <span className="mx-2">•</span>
+                  <span>{project.date}</span>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

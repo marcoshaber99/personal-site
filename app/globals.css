@@ -33,6 +33,11 @@
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+
+    /* Add smooth scrolling behavior */
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   .dark {
@@ -111,4 +116,27 @@ pre {
 pre > code {
   display: block;
   padding: 1em;
+}
+
+@layer components {
+  .section-heading {
+    @apply font-mono text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100;
+  }
+
+  .section-subheading {
+    @apply font-mono text-lg font-medium tracking-wide text-neutral-700 dark:text-neutral-300;
+  }
+
+  .section-container {
+    @apply relative w-full max-w-[85ch] mx-auto;
+  }
+
+  .content-grid {
+    @apply grid gap-8 sm:gap-12;
+  }
+
+  /* Refined gradient background */
+  .gradient-bg {
+    @apply fixed inset-0 -z-10 bg-background;
+  }
 }

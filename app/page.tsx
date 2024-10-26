@@ -7,13 +7,13 @@ import Blog from "@/components/blog";
 
 export default function Home() {
   return (
-    <main>
+    <div className="space-y-20">
       <About />
       <Projects />
       <WorkExp />
       <Skills />
       <Blog />
       <Photography />
-    </main>
+    </div>
   );
 }
