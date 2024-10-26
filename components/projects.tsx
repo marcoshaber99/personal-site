@@ -28,7 +28,7 @@ export default function Projects() {
             {/* Subtle hover effect background */}
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neutral-100 dark:from-neutral-800/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            <div className="relative flex flex-col sm:flex-row gap-6 rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700">
+            <div className="relative flex flex-col sm:flex-row gap-6 rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700 bg-background/40">
               {/* Project Logo */}
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 rounded-lg bg-neutral-100 dark:bg-neutral-800/50 p-2.5 flex items-center justify-center">
