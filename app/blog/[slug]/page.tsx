@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/content";
 import { Metadata } from "next";
 import BlogSchema from "@/components/blog-schema";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -57,17 +59,26 @@ export default async function BlogPost({
   return (
     <>
       <BlogSchema slug={params.slug} />
-      <article className="max-w-2xl mx-auto mt-8">
-        <h1 className="text-3xl font-bold mb-4 text-primary dark:text-orange-400">
-          {post.title}
-        </h1>
-        <p className="text-sm text-muted-foreground mb-4">
-          {post.date} • {post.readTime} min read
-        </p>
-        <div className="prose dark:prose-invert">
-          <PostContent />
-        </div>
-      </article>
+      <div className="max-w-2xl mx-auto">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 group"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          Back to Home
+        </Link>
+        <article className="mt-4">
+          <h1 className="text-3xl font-bold mb-4 text-primary dark:text-orange-400">
+            {post.title}
+          </h1>
+          <p className="text-sm text-muted-foreground mb-4">
+            {post.date} • {post.readTime} min read
+          </p>
+          <div className="prose dark:prose-invert">
+            <PostContent />
+          </div>
+        </article>
+      </div>
     </>
   );
 }
