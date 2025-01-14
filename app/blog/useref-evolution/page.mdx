@@ -1,0 +1,190 @@
+import { RefDemo } from "./ref-demo";
+import { ForwardRefDemo } from "./forward-ref-demo";
+import { NewRefDemo } from "./new-ref-demo";
+
+export const metadata = {
+  title: "useRef in React 19",
+  description:
+    "Learn how to use the useRef hook and its new behavior in React 19.",
+};
+
+## useRef in React 19
+
+<Spacer size="medium" />
+
+The useRef hook is a useful tool in React for accessing DOM elements and storing mutable values. React 19 introduces a simpler way to work with refs in components.
+
+<Spacer size="large" />
+
+<Underline>**Note:**</Underline> I'm using JavaScript for the examples in this blog
+post for simplicity and clarity, but I recommend using TypeScript for your projects.
+
+<Spacer size="large" />
+
+### Basic useRef Usage
+
+Before we check out the new React 19 changes, let's start with a simple example of how we've been using `useRef` up until now:
+
+```javascript
+import React, { useRef } from "react";
+
+function TextInput() {
+  const inputRef = useRef(null);
+
+  function focusInput() {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" placeholder="Try focusing me" />
+      <button onClick={focusInput}>Focus Input</button>
+    </div>
+  );
+}
+```
+
+In this example, the `useRef` hook <Underline>creates a reference</Underline> to the input element. Think of it as a way to "grab onto" a DOM element directly.
+
+<br />
+When you click the button, `inputRef.current` gives us access to the actual input
+element, allowing us to call browser APIs like `focus()` on it. The element maintains
+its state between renders.
+
+<br />
+This is particularly useful when you need to interact with DOM elements directly,
+like focusing inputs, playing videos, or measuring element dimensions.
+
+<Spacer size="medium" />
+
+<RefDemo />
+
+<Spacer size="large" />
+
+### Using refs with Custom Components
+
+If you try to pass a ref directly to your own component like this:
+
+```javascript
+function CustomInput({ placeholder }) {
+  return <input placeholder={placeholder} />;
+}
+
+function Form() {
+  const inputRef = useRef(null);
+
+  // ❌ This won't work.
+  return <CustomInput ref={inputRef} />;
+}
+```
+
+<Spacer size="small" />
+
+You'll get an error in the console that might look something like this:
+
+<Highlighter color="red">TypeError: Cannot read properties of null</Highlighter>
+
+<Spacer size="large" />
+
+The way we would solve this is by using the `forwardRef` API:
+
+```javascript
+// CustomInput.js
+import React, { forwardRef } from "react";
+
+const CustomInput = forwardRef((props, ref) => (
+  <input type="text" ref={ref} {...props} />
+));
+
+// Form.js
+import React, { useRef } from "react";
+
+function Form() {
+  const inputRef = useRef(null);
+
+  function handleFocus() {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }
+
+  return (
+    <form>
+      <CustomInput ref={inputRef} placeholder="Enter your name" />
+      <button type="button" onClick={handleFocus}>
+        Focus Input
+      </button>
+    </form>
+  );
+}
+```
+
+<Spacer size="medium" />
+
+<ForwardRefDemo />
+
+<Spacer size="large" />
+
+### The New Way in React 19
+
+React 19 simplifies this by <Emphasis>making refs work like any other prop</Emphasis>. You can now directly access `ref` as a prop in your function components without using `forwardRef`:
+
+```javascript
+// CustomInput.js
+function CustomInput({ ref, ...props }) {
+  return <input type="text" ref={ref} {...props} />;
+}
+
+// Form.js
+function Form() {
+  const inputRef = useRef(null);
+
+  function handleFocus() {
+    inputRef.current?.focus();
+  }
+
+  return (
+    <form>
+      <CustomInput ref={inputRef} placeholder="Enter your name" />
+      <button type="button" onClick={handleFocus}>
+        Focus Input
+      </button>
+    </form>
+  );
+}
+```
+
+<Spacer size="medium" />
+
+<NewRefDemo />
+
+<Spacer size="large" />
+
+#### This new approach:
+
+- Eliminates the need for `forwardRef`
+- Makes refs behave like regular props
+- Reduces boilerplate code
+
+<Spacer size="medium" />
+
+In future versions, `forwardRef` will be deprecated and eventually removed.
+
+<Spacer size="large" />
+
+### Resources
+
+- [React 19 Blog Post](https://react.dev/blog)
+- [useRef Documentation](https://react.dev/reference/react/useRef)
+
+<Spacer size="medium" />
+
+### Feedback
+
+If you have any questions or suggestions about this guide, feel free to reach out:
+
+- Email: [marcoshaber99@gmail.com](mailto:marcoshaber99@gmail.com)
+- LinkedIn: [Marco Haber](https://www.linkedin.com/in/marcohaber99/)
+- Github: [@marcoshaber99](https://github.com/marcoshaber99)

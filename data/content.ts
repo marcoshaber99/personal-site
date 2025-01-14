@@ -145,9 +145,17 @@ export const blogPosts: {
   {
     title: "React Context: An Introduction",
     slug: "react-context-guide",
-    date: "2024-10-01", // You can adjust this date
-    readTime: 6, // Estimate the read time
+    date: "2024-10-01",
+    readTime: 6,
     excerpt:
       "Learn how to use React Context for state management in your React applications.",
+  },
+  {
+    title: "useRef in React 19",
+    slug: "useref-evolution",
+    date: "2025-01-14",
+    readTime: 4,
+    excerpt:
+      "Learn about the useRef hook and how the new React 19 ref prop behavior simplifies the way we use refs in our components.",
   },
 ];
