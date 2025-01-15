@@ -26,7 +26,7 @@ export function ForwardRefDemo() {
 
   return (
     <div className="not-prose flex flex-col sm:flex-row gap-4 items-center justify-center">
-      <CustomInput ref={inputRef} placeholder="Custom input component" />
+      <CustomInput ref={inputRef} placeholder="Enter your name" />
       <Button onClick={focusInput}>Focus Input</Button>
     </div>
   );
