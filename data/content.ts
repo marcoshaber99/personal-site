@@ -1,5 +1,5 @@
 export const about: string =
-  "Developer passionate about crafting beautiful, functional web apps using React, Next.js, and TypeScript. Quick learner and team player.";
+  "Developer passionate about crafting beautiful, functional web apps using React, Next.js, and TypeScript. Quick learner, listener, and team player.";
 
 export const projects: {
   title: string;
@@ -12,6 +12,17 @@ export const projects: {
   logo: string;
   logoDark?: string;
 }[] = [
+  {
+    title: "Quill AI",
+    description:
+      "An open-source, developer-focused educational blog platform (in early development). Built with Next.js 15, React 19, TypeScript, and Prisma ORM. Features clean, minimalistic design. Upcoming: AI integration, authentication, tagging system, and saved posts.",
+    github: "https://github.com/marcoshaber99/minimal-ai-blog",
+    category: "Web Application",
+    date: "2025",
+    isPrivate: false,
+    logo: "/logo-light-theme.svg",
+    logoDark: "/logo-dark-theme.svg",
+  },
   {
     title: "Harmony",
     description:
