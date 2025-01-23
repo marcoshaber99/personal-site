@@ -1,62 +1,86 @@
 "use client";
 
+import React from "react";
+import { motion } from "framer-motion";
 import { projects } from "@/data/content";
-import { FaGithub, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 
 export default function Projects() {
   return (
-    <section className="relative">
-      {/* Section Title with decorative line and gradient */}
-      <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-2xl font-medium tracking-tight">Projects</h2>
-        <div className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800" />
+    <section className="relative" aria-labelledby="projects-title">
+      <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <h2
+          id="projects-title"
+          className="text-xl sm:text-2xl font-medium tracking-tight"
+        >
+          Projects
+        </h2>
+        <div
+          className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800"
+          role="presentation"
+        />
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid gap-4 sm:gap-6" role="list">
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, transform: "translateY(20px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0)" }}
+            transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
             className="group relative"
+            role="listitem"
           >
-            {/* Subtle hover effect background */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neutral-100 dark:from-neutral-800/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            <div
+              className="absolute inset-0 rounded-xl bg-gradient-to-r from-neutral-100 dark:from-neutral-800/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+              aria-hidden="true"
+            />
 
-            <div className="relative flex flex-col sm:flex-row gap-6 rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700 bg-background/40">
-              {/* Project Logo */}
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-lg bg-neutral-100 dark:bg-neutral-800/50 p-2.5 flex items-center justify-center">
+            <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6 rounded-xl border border-neutral-200 dark:border-neutral-800 p-4 sm:p-5 transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700 bg-background/40">
+              <div className="flex-shrink-0" aria-hidden="true">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-neutral-100 dark:bg-neutral-800/50 p-2 sm:p-2.5 flex items-center justify-center">
                   <Image
                     src={project.logo}
                     alt={`${project.title} logo`}
                     width={30}
                     height={30}
                     className="object-contain dark:hidden"
+                    loading="lazy"
+                    quality={90}
                   />
                   <Image
                     src={project.logoDark || project.logo}
-                    alt={`${project.title} logo`}
+                    alt={`${project.title} dark mode logo`}
                     width={30}
                     height={30}
                     className="object-contain hidden dark:block"
+                    loading="lazy"
+                    quality={90}
                   />
                 </div>
               </div>
 
-              {/* Project Details */}
-              <div className="flex-grow space-y-3">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-lg font-medium">{project.title}</h3>
-                  <div className="flex gap-3 text-neutral-600 dark:text-neutral-400">
+              <div className="flex-grow space-y-2 sm:space-y-3">
+                <div className="flex items-start justify-between gap-3 sm:gap-4">
+                  <h3 className="text-base sm:text-lg font-medium">
+                    {project.title}
+                  </h3>
+                  <div
+                    className="flex gap-2 sm:gap-3 text-neutral-600 dark:text-neutral-400"
+                    aria-label="Project links"
+                  >
                     {project.isPrivate ? (
-                      <span title="Private Project">
-                        <FaLock className="h-4 w-4" />
+                      <span
+                        title="Private Project"
+                        aria-label="Private Project"
+                      >
+                        <FaLock
+                          className="h-3.5 w-3.5 sm:h-4 sm:w-4"
+                          aria-hidden="true"
+                        />
                       </span>
                     ) : (
                       project.github && (
@@ -65,8 +89,12 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                          aria-label="View source code on GitHub"
                         >
-                          <FaGithub className="h-4 w-4" />
+                          <FaGithub
+                            className="h-3.5 w-3.5 sm:h-4 sm:w-4"
+                            aria-hidden="true"
+                          />
                         </Link>
                       )
                     )}
@@ -76,20 +104,29 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                        aria-label={`Visit ${project.title} website`}
                       >
-                        <FaExternalLinkAlt className="h-4 w-4" />
+                        <FaExternalLinkAlt
+                          className="h-3.5 w-3.5 sm:h-4 sm:w-4"
+                          aria-hidden="true"
+                        />
                       </Link>
                     )}
                   </div>
                 </div>
 
-                <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3 sm:line-clamp-none">
                   {project.description}
                 </p>
 
-                <div className="flex items-center text-xs text-neutral-500 dark:text-neutral-500">
+                <div
+                  className="flex items-center text-xs text-neutral-500 dark:text-neutral-500"
+                  aria-label="Project details"
+                >
                   <span>{project.category}</span>
-                  <span className="mx-2">•</span>
+                  <span className="mx-2" aria-hidden="true">
+                    •
+                  </span>
                   <span>{project.date}</span>
                 </div>
               </div>

@@ -9,16 +9,16 @@ export default function About() {
   return (
     <section className="relative">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, transform: "translateY(20px)" }}
+        animate={{ opacity: 1, transform: "translateY(0)" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="space-y-8"
       >
         <div className="space-y-3">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, transform: "translateX(-20px)" }}
+            animate={{ opacity: 1, transform: "translateX(0)" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <Link
               href="/"

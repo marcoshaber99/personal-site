@@ -13,12 +13,12 @@ export function Header() {
   const isInBlogPost = pathname?.startsWith("/blog/") && pathname !== "/blog";
 
   return (
-    <header className="flex items-center justify-between w-full">
+    <header className="flex items-center justify-between w-full" role="banner">
       <div className="flex-1">
         {isInBlogPost && (
           <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, transform: "translateX(-10px)" }}
+            animate={{ opacity: 1, transform: "translateX(0)" }}
             transition={{
               type: "spring",
               stiffness: 300,
@@ -28,15 +28,20 @@ export function Header() {
             <Link
               href="/"
               className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200"
+              aria-label="Back to Home"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
               <span className="text-sm font-medium">Home</span>
             </Link>
           </motion.div>
         )}
       </div>
       <div className="flex items-center gap-4 sm:gap-6">
-        <nav className="flex items-center gap-3 sm:gap-5">
+        <nav
+          className="flex items-center gap-3 sm:gap-5"
+          role="navigation"
+          aria-label="Social links"
+        >
           {socialLinks.map((link, i) => (
             <motion.a
               key={link.name}
@@ -44,8 +49,9 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
+              aria-label={link.name}
+              initial={{ opacity: 0, transform: "translateY(-10px)" }}
+              animate={{ opacity: 1, transform: "translateY(0)" }}
               transition={{
                 delay: i * 0.1,
                 type: "spring",
@@ -60,7 +66,7 @@ export function Header() {
             >
               <link.icon
                 className="h-[18px] w-[18px] sm:h-5 sm:w-5"
-                aria-label={link.name}
+                aria-hidden="true"
               />
               <span className="sr-only">{link.name}</span>
             </motion.a>
