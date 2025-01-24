@@ -13,9 +13,10 @@ export const projects: {
   logoDark?: string;
 }[] = [
   {
-    title: "Quill AI",
+    title: "Vivlio",
     description:
-      "An open-source, developer-focused educational blog platform (in early development). Built with Next.js 15, React 19, TypeScript, and Prisma ORM. Features clean, minimalistic design. Upcoming: AI integration, authentication, tagging system, and saved posts.",
+      "An open-source, developer-focused educational blog platform (in early development). ",
+    link: "https://vivlio.dev",
     github: "https://github.com/marcoshaber99/minimal-ai-blog",
     category: "Web Application",
     date: "2025",

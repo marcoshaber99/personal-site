@@ -1,4 +1,8 @@
-### Tech
+### My Portfolio Website
 
-- ⚛️ Next.js 14
-- 🎨 Tailwind CSS
+## Built with
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- MDX for blog posts
