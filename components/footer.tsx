@@ -1,7 +1,7 @@
 "use client";
 
 import { socialLinks } from "@/data/social-links";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Footer() {
   return (

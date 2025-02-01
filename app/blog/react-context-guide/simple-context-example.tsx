@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const UserContext = createContext<string | undefined>(undefined);
 

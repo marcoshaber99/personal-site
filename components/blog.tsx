@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { blogPosts } from "@/data/content";
 import { ArrowRightIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Blog() {
   // Sort blog posts by date in descending order

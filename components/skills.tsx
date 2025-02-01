@@ -2,7 +2,7 @@
 
 import React from "react";
 import { skills } from "@/data/content";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = React.useState<string | null>(null);

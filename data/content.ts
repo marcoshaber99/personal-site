@@ -1,5 +1,5 @@
 export const about: string =
-  "Developer passionate about crafting beautiful, functional web apps using React, Next.js, and TypeScript. Quick learner, listener, and team player.";
+  "Developer passionate about crafting modern, functional web apps using React, Next.js, and TypeScript. Quick learner, listener, and team player.";
 
 export const projects: {
   title: string;
@@ -21,8 +21,18 @@ export const projects: {
     category: "Web Application",
     date: "2025",
     isPrivate: false,
-    logo: "/logo-light-theme.svg",
-    logoDark: "/logo-dark-theme.svg",
+    logo: "/vivlio-logo-dark.svg",
+    logoDark: "/vivlio-logo.svg",
+  },
+  {
+    title: "ProfitScan",
+    description: "Financial Analysis Tool built with Python and Streamlit.",
+    link: "https://profit-scan-peach.vercel.app",
+    category: "Web Application",
+    date: "2023-09",
+    isPrivate: true,
+    logo: "/barcode.svg",
+    logoDark: "/barcode-dark.svg",
   },
   {
     title: "Harmony",
@@ -35,16 +45,6 @@ export const projects: {
     isPrivate: false,
     logo: "/infinity.svg",
     logoDark: "/infinity-dark.svg",
-  },
-  {
-    title: "ProfitScan",
-    description: "Financial Analysis Tool built with Python and Streamlit.",
-    link: "https://profit-scan-peach.vercel.app",
-    category: "Web Application",
-    date: "2023-09",
-    isPrivate: true,
-    logo: "/barcode.svg",
-    logoDark: "/barcode-dark.svg",
   },
 ];
 

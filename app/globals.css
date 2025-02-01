@@ -108,6 +108,23 @@
   opacity: 1;
 }
 
+/* Logo glow effect */
+.logo-container {
+  position: relative;
+}
+
+.logo-container img {
+  filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.6))
+    drop-shadow(0 0 20px rgba(74, 222, 128, 0.4))
+    drop-shadow(0 0 30px rgba(74, 222, 128, 0.2));
+}
+
+.dark .logo-container img {
+  filter: drop-shadow(0 0 15px rgba(134, 239, 172, 0.8))
+    drop-shadow(0 0 30px rgba(134, 239, 172, 0.5))
+    drop-shadow(0 0 45px rgba(134, 239, 172, 0.3));
+}
+
 pre {
   position: relative;
   overflow-x: auto;

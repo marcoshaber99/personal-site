@@ -1,7 +1,7 @@
 "use client";
 
 import { workExperience } from "@/data/content";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function WorkExp() {
   return (

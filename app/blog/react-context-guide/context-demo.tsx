@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const ThemeContext = createContext<
   { theme: "light" | "dark"; toggleTheme: () => void } | undefined

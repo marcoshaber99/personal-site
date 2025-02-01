@@ -3,7 +3,7 @@
 import React from "react";
 import { ModeToggle } from "@/components/theme-toggle";
 import { socialLinks } from "@/data/social-links";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";

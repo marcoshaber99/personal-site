@@ -3,7 +3,7 @@
 import { about } from "@/data/content";
 import Link from "next/link";
 import { DownloadIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function About() {
   return (

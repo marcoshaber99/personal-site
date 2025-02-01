@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { photographs } from "@/data/content";
 
 export default function Photography() {
