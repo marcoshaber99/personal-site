@@ -2,15 +2,12 @@
 
 import { workExperience } from "@/data/content";
 import { motion } from "motion/react";
+import { SectionTitle } from "./section-title";
 
 export default function WorkExp() {
   return (
     <section className="relative">
-      {/* Section Title with decorative line and gradient */}
-      <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-2xl font-medium tracking-tight">Work Experience</h2>
-        <div className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800" />
-      </div>
+      <SectionTitle title="Work Experience" />
 
       <div className="space-y-4">
         {workExperience.map((job, index) => (
@@ -40,17 +37,13 @@ export default function WorkExp() {
 
               <ul className="mt-3 space-y-2">
                 {job.description.map((item, itemIndex) => (
-                  <motion.li
+                  <li
                     key={itemIndex}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: 0.2 + itemIndex * 0.1 }}
-                    viewport={{ once: true }}
                     className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400"
                   >
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-green-500/50 dark:bg-green-400/50" />
                     {item}
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </div>

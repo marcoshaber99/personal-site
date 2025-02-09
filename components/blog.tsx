@@ -4,6 +4,7 @@ import Link from "next/link";
 import { blogPosts } from "@/data/content";
 import { ArrowRightIcon } from "lucide-react";
 import { motion } from "motion/react";
+import { SectionTitle } from "./section-title";
 
 export default function Blog() {
   // Sort blog posts by date in descending order
@@ -13,11 +14,7 @@ export default function Blog() {
 
   return (
     <section className="relative">
-      {/* Section Title with decorative line and gradient */}
-      <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-        <h2 className="text-xl sm:text-2xl font-medium tracking-tight">Blog</h2>
-        <div className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800" />
-      </div>
+      <SectionTitle title="Blog" />
 
       <div className="grid gap-3 sm:gap-4">
         {sortedPosts.map((post, index) => (

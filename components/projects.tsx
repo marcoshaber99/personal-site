@@ -6,22 +6,12 @@ import { projects } from "@/data/content";
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt, FaLock } from "react-icons/fa";
+import { SectionTitle } from "./section-title";
 
 export default function Projects() {
   return (
     <section className="relative" aria-labelledby="projects-title">
-      <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-        <h2
-          id="projects-title"
-          className="text-xl sm:text-2xl font-medium tracking-tight"
-        >
-          Projects
-        </h2>
-        <div
-          className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800"
-          role="presentation"
-        />
-      </div>
+      <SectionTitle title="Projects" />
 
       <div className="grid gap-4 sm:gap-6" role="list">
         {projects.map((project, index) => (

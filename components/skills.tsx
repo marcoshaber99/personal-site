@@ -3,6 +3,7 @@
 import React from "react";
 import { skills } from "@/data/content";
 import { motion } from "motion/react";
+import { SectionTitle } from "./section-title";
 
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = React.useState<string | null>(null);
@@ -10,11 +11,7 @@ export default function Skills() {
 
   return (
     <section className="relative">
-      {/* Section Title with decorative line and gradient */}
-      <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-2xl font-medium tracking-tight">Skills</h2>
-        <div className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800" />
-      </div>
+      <SectionTitle title="Skills" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {Object.entries(skills).map(([category, skillList], categoryIndex) => (
