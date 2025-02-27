@@ -42,7 +42,7 @@ export default function Projects() {
                         alt={`${project.title} logo`}
                         width={30}
                         height={30}
-                        className="object-contain dark:hidden"
+                        className="w-6 h-6 sm:w-7 sm:h-7 object-contain dark:hidden"
                         loading="lazy"
                         quality={90}
                       />
@@ -51,7 +51,7 @@ export default function Projects() {
                         alt={`${project.title} dark mode logo`}
                         width={30}
                         height={30}
-                        className="object-contain hidden dark:block"
+                        className="w-6 h-6 sm:w-7 sm:h-7 object-contain hidden dark:block"
                         loading="lazy"
                         quality={90}
                       />

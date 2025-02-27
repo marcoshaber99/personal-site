@@ -13,6 +13,18 @@ export const projects: {
   logoDark?: string;
 }[] = [
   {
+    title: "haber-ui",
+    description:
+      "A collection of React + Tailwind v4 components specifically designed for AI applications, following the shadcn/ui installable component approach.",
+    link: "https://haberui.com",
+    github: "https://github.com/marcoshaber99/haberui",
+    category: "UI Components",
+    date: "2025",
+    isPrivate: false,
+    logo: "/haberui-logo.svg",
+    logoDark: "/haberui-logo-dark.svg",
+  },
+  {
     title: "Vivlio",
     description:
       "An open-source, developer-focused educational blog platform (in early development). ",
