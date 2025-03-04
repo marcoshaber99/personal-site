@@ -48,7 +48,7 @@ export default function About() {
           className="flex items-center gap-4"
         >
           <Link
-            href="/marco-haber-new-resume.pdf"
+            href="/marco-haber-resume.pdf"
             download
             className="group inline-flex items-center gap-2 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >

@@ -157,3 +157,14 @@ pre > code {
     @apply fixed inset-0 -z-10 bg-background;
   }
 }
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
