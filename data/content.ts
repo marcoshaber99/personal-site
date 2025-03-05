@@ -46,18 +46,6 @@ export const projects: {
     logo: "/barcode.svg",
     logoDark: "/barcode-dark.svg",
   },
-  {
-    title: "Harmony",
-    description:
-      "Note Management SaaS built with Next.js and Convex. AI-Assisted, with real-time collaboration.",
-    link: "https://harmony-theta.vercel.app/",
-    github: "https://github.com/marcoshaber99/thesis-project",
-    category: "Web Application",
-    date: "2023-06",
-    isPrivate: false,
-    logo: "/infinity.svg",
-    logoDark: "/infinity-dark.svg",
-  },
 ];
 
 export const workExperience: {
