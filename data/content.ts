@@ -36,16 +36,6 @@ export const projects: {
     logo: "/vivlio-logo-dark.svg",
     logoDark: "/vivlio-logo.svg",
   },
-  {
-    title: "ProfitScan",
-    description: "Financial Analysis Tool built with Python and Streamlit.",
-    link: "https://profit-scan-peach.vercel.app",
-    category: "Web Application",
-    date: "2023-09",
-    isPrivate: true,
-    logo: "/barcode.svg",
-    logoDark: "/barcode-dark.svg",
-  },
 ];
 
 export const workExperience: {

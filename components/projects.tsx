@@ -11,7 +11,7 @@ import { SectionTitle } from "./section-title";
 export default function Projects() {
   return (
     <section className="relative" aria-labelledby="projects-title">
-      <SectionTitle title="Projects" />
+      <SectionTitle title="Recent Projects" />
 
       <div className="grid gap-4 sm:gap-6" role="list">
         {projects.map((project, index) => (
