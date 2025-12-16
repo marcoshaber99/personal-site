@@ -1,38 +1,15 @@
-import { RefDemo } from "./ref-demo";
-import { ForwardRefDemo } from "./forward-ref-demo";
-import { NewRefDemo } from "./new-ref-demo";
-
-export const metadata = {
-  title: "useRef in React 19",
-  description:
-    "Learn how to use the useRef hook and its new behavior in React 19.",
-  openGraph: {
-    title: "useRef in React 19",
-    description:
-      "Learn how to use the useRef hook and its new behavior in React 19.",
-    images: [
-      {
-        url: "/og/useref-evolution.png",
-        width: 1200,
-        height: 630,
-        alt: "Code example showing React 19's new ref prop syntax",
-      },
-    ],
-  },
-};
-
-## useRef in React 19
-
-<Spacer size="medium" />
+---
+title: "useRef in React 19"
+date: "2025-01-14"
+excerpt: "Learn about the useRef hook and how the new React 19 ref prop behavior simplifies the way we use refs in our components."
+readTime: 4
+---
 
 The useRef hook is a useful tool in React for accessing DOM elements and storing mutable values. React 19 introduces a simpler way to work with refs in components.
 
-<Spacer size="large" />
-
-<Underline>**Note:**</Underline> I'm using JavaScript for the examples in this blog
-post for simplicity and clarity, but I recommend using TypeScript for your projects.
-
-<Spacer size="large" />
+<Callout type="info">
+I'm using JavaScript for the examples in this blog post for simplicity and clarity, but I recommend using TypeScript for your projects.
+</Callout>
 
 ### Basic useRef Usage
 
@@ -59,22 +36,11 @@ function TextInput() {
 }
 ```
 
-In this example, the `useRef` hook <Underline>creates a reference</Underline> to the input element. Think of it as a way to "grab onto" a DOM element directly.
+In this example, the `useRef` hook creates a reference to the input element. Think of it as a way to "grab onto" a DOM element directly.
 
-<br />
-When you click the button, `inputRef.current` gives us access to the actual input
-element, allowing us to call browser APIs like `focus()` on it. The element maintains
-its state between renders.
+When you click the button, `inputRef.current` gives us access to the actual input element, allowing us to call browser APIs like `focus()` on it. The element maintains its state between renders.
 
-<br />
-This is particularly useful when you need to interact with DOM elements directly,
-like focusing inputs, playing videos, or measuring element dimensions.
-
-<Spacer size="medium" />
-
-<RefDemo />
-
-<Spacer size="large" />
+This is particularly useful when you need to interact with DOM elements directly, like focusing inputs, playing videos, or measuring element dimensions.
 
 ### Using refs with Custom Components
 
@@ -93,13 +59,9 @@ function Form() {
 }
 ```
 
-<Spacer size="small" />
+You'll get an error in the console:
 
-You'll get an error in the console that might look something like this:
-
-<Highlighter color="red">TypeError: Cannot read properties of null</Highlighter>
-
-<Spacer size="large" />
+<Mark color="red">TypeError: Cannot read properties of null</Mark>
 
 The way we would solve this is by using the `forwardRef` API:
 
@@ -134,15 +96,9 @@ function Form() {
 }
 ```
 
-<Spacer size="medium" />
-
-<ForwardRefDemo />
-
-<Spacer size="large" />
-
 ### The New Way in React 19
 
-React 19 simplifies this by <Emphasis>making refs work like any other prop</Emphasis>. You can now directly access `ref` as a prop in your function components without using `forwardRef`:
+React 19 simplifies this by <Mark>making refs work like any other prop</Mark>. You can now directly access `ref` as a prop in your function components without using `forwardRef`:
 
 ```javascript
 // CustomInput.js
@@ -169,35 +125,15 @@ function Form() {
 }
 ```
 
-<Spacer size="medium" />
-
-<NewRefDemo />
-
-<Spacer size="large" />
-
 #### This new approach:
 
 - Eliminates the need for `forwardRef`
 - Makes refs behave like regular props
 - Reduces boilerplate code
 
-<Spacer size="medium" />
-
 In future versions, `forwardRef` will be deprecated and eventually removed.
-
-<Spacer size="large" />
 
 ### Resources
 
 - [React 19 Blog Post](https://react.dev/blog)
 - [useRef Documentation](https://react.dev/reference/react/useRef)
-
-<Spacer size="medium" />
-
-### Feedback
-
-If you have any questions or suggestions about this guide, feel free to reach out:
-
-- Email: [marcoshaber99@gmail.com](mailto:marcoshaber99@gmail.com)
-- LinkedIn: [Marco Haber](https://www.linkedin.com/in/marcohaber99/)
-- Github: [@marcoshaber99](https://github.com/marcoshaber99)

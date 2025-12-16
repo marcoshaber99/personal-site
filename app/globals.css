@@ -90,18 +90,6 @@
   @apply font-mono text-base font-medium tracking-wide;
 }
 
-.spacer-sm {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-.spacer-md {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-.spacer-lg {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
 
 /* Add these new styles */
 .group:hover .group-hover\:opacity-100 {
@@ -133,6 +121,16 @@ pre {
 pre > code {
   display: block;
   padding: 1em;
+}
+
+/* Steps component counter */
+.steps-container {
+  counter-reset: step;
+}
+
+.step .step-number::before {
+  counter-increment: step;
+  content: counter(step);
 }
 
 @layer components {
