@@ -128,36 +128,3 @@ export const skills: Record<string, string[]> = {
   Frameworks: ["React JS", "Next JS", "Node JS", "Express JS", "TailwindCSS"],
   "Software Skills": ["Git", "GitHub", "Figma", "AWS (S3)"],
 };
-
-export const blogPosts: {
-  title: string;
-  slug: string;
-  date: string;
-  readTime: number;
-  excerpt: string;
-}[] = [
-  {
-    title: "Next.js App Router: A Practical Guide",
-    slug: "nextjs-routing",
-    date: "2024-09-26",
-    readTime: 9,
-    excerpt:
-      "Learn the basics of Next.js App Router and how to use it to structure and organize your React applications.",
-  },
-  {
-    title: "React Context: An Introduction",
-    slug: "react-context-guide",
-    date: "2024-10-01",
-    readTime: 6,
-    excerpt:
-      "Learn how to use React Context for state management in your React applications.",
-  },
-  {
-    title: "useRef in React 19",
-    slug: "useref-evolution",
-    date: "2025-01-14",
-    readTime: 4,
-    excerpt:
-      "Learn about the useRef hook and how the new React 19 ref prop behavior simplifies the way we use refs in our components.",
-  },
-];

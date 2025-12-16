@@ -16,24 +16,14 @@ export function Header() {
     <header className="flex items-center justify-between w-full" role="banner">
       <div className="flex-1">
         {isInBlogPost && (
-          <motion.div
-            initial={{ opacity: 0, transform: "translateX(-10px)" }}
-            animate={{ opacity: 1, transform: "translateX(0)" }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 20,
-            }}
+          <Link
+            href="/"
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200"
+            aria-label="Back to Home"
           >
-            <Link
-              href="/"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="Back to Home"
-            >
-              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
-              <span className="text-sm font-medium">Home</span>
-            </Link>
-          </motion.div>
+            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+            <span className="text-sm font-medium">Home</span>
+          </Link>
         )}
       </div>
       <div className="flex items-center gap-4 sm:gap-6">

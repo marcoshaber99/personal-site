@@ -1,0 +1,276 @@
+---
+title: "Next.js App Router: A Practical Guide"
+date: "2024-09-26"
+excerpt: "Learn the basics of Next.js App Router and how to use it to structure and organize your React applications."
+readTime: 9
+---
+
+Next.js 13 introduced the App Router, a new way to handle routing in React applications.
+
+In this guide, I'll walk you through the main concepts of the App Router, with practical examples.
+
+### The Basics
+
+The App Router uses a file-based routing system, where <Mark color="green">folders represent routes</Mark> and files define the UI components for those routes:
+
+```
+app/
+├── page.tsx          → /
+├── about/
+│   └── page.tsx      → /about
+├── blog/
+│   ├── page.tsx      → /blog
+│   └── [slug]/
+│       └── page.tsx  → /blog/:slug
+└── layout.tsx
+```
+
+## Concepts
+
+### 1. File Conventions
+
+We have some special files that serve specific purposes:
+
+| File | Purpose |
+|------|---------|
+| `page.tsx` | Defines a route and makes it publicly accessible |
+| `layout.tsx` | Creates shared layouts for a segment and its children |
+| `loading.tsx` | Creates loading UI for a segment and its children |
+| `error.tsx` | Creates error UI for a segment and its children |
+| `not-found.tsx` | Creates UI for not found pages |
+
+#### Example of a basic page.tsx:
+
+```typescript
+import { getLatestPosts } from "@/lib/api";
+
+export default async function BlogPage() {
+  const posts = await getLatestPosts();
+
+  return (
+    <div>
+      <h1>Latest Blog Posts</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+This `page.tsx` file creates a route for a blog listing page.
+
+### 2. Layouts
+
+Layouts allow us to *create shared UI* that wraps multiple pages. They're useful for maintaining consistent navigation, headers, or footers across our app.
+
+Create a root layout:
+
+```typescript
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
+```
+
+### 3. Route Groups
+
+Route groups allow us to <Mark color="green">organize routes without affecting the URL structure</Mark>. This is useful for separating our application into logical sections.
+
+```
+app/
+├── (marketing)
+│   ├── about/
+│   │   └── page.tsx
+│   └── contact/
+│       └── page.tsx
+├── (shop)
+│   ├── products/
+│   │   └── page.tsx
+│   └── cart/
+│       └── page.tsx
+└── layout.tsx
+```
+
+In this example, `(marketing)` and `(shop)` are route groups that don't affect the URL path.
+
+### 4. Dynamic Routes
+
+Dynamic routes allow you to create pages that can match multiple URLs based on dynamic segments. This is useful when you don't know the exact segment names ahead of time and want to create routes from dynamic data.
+
+#### Convention
+
+A dynamic segment is created by wrapping a folder's name in square brackets: **[folderName]**
+
+For example:
+- **[id]**
+- **[slug]**
+
+#### File Structure
+
+Here's an example file structure for a blog with dynamic routes:
+
+```
+app/
+├── blog/
+│   ├── [slug]/
+│   │   └── page.tsx
+│   └── page.tsx
+└── page.tsx
+```
+
+In this structure, **[slug]** is a dynamic segment that can match any value in the URL.
+
+#### Example
+
+```typescript
+export default function BlogPost({ params }: { params: { slug: string } }) {
+  return (
+    <div>
+      <h1>Blog Post: {params.slug}</h1>
+      {/* Fetch and display the blog post content here */}
+    </div>
+  );
+}
+```
+
+This will match routes like:
+
+```
+/blog/hello  →  { slug: 'hello' }
+/blog/world  →  { slug: 'world' }
+```
+
+#### Fetching Data
+
+In practice, you'd typically fetch data based on the *slug*.
+
+```typescript
+import { getBlogPost } from "@/lib/api";
+
+export default async function BlogPost({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getBlogPost(params.slug);
+
+  if (!post) {
+    return <div>Post not found</div>;
+  }
+
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
+    </article>
+  );
+}
+```
+
+<Callout type="tip">
+Dynamic segments are passed as the **params** prop to layout, page, route, and generateMetadata functions.
+</Callout>
+
+### 5. Catch-all and Optional Catch-all Segments
+
+Catch-all segments let you match multiple parts of a URL in one dynamic route. This gives you more flexibility when dealing with nested or unknown paths.
+
+#### Catch-all Segments
+
+```typescript
+app/shop/[...slug]/page.tsx
+```
+
+- Matches one or more segments after the base path
+- <Mark color="red">Does not match the root path (/shop)</Mark>
+- Use when you always expect at least one segment
+
+**Example use case:**
+- /docs/react
+- /docs/react/hooks
+- /docs/react/hooks/useEffect
+
+#### Optional Catch-all Segments
+
+```typescript
+app/shop/[[...slug]]/page.tsx
+```
+
+- Matches <Mark color="blue">zero or more segments</Mark> after the base path
+- Also matches the root path (/shop)
+
+**Example use case:**
+- /shop (all products)
+- /shop/clothing
+- /shop/clothing/shirts
+
+Here's how you might handle these routes:
+
+```typescript
+// Catch-all segment: app/docs/[...slug]/page.tsx
+export default function DocsPage({ params }: { params: { slug: string[] } }) {
+  return <div>Documentation for: {params.slug.join("/")}</div>;
+}
+
+// Optional catch-all segment: app/shop/[[...slug]]/page.tsx
+export default function ShopPage({ params }: { params: { slug?: string[] } }) {
+  if (params.slug === undefined) {
+    return <AllProducts />; // Handle /shop
+  } else {
+    return <FilteredProducts categories={params.slug} />; // Handle nested categories
+  }
+}
+```
+
+<Callout type="info">
+Optional catch-all segments offer more flexibility by handling both root and nested paths in one component, unlike regular catch-all segments.
+</Callout>
+
+### 6. Parallel Routes
+
+Parallel routes allow you to render multiple pages simultaneously within the same layout. This is useful for creating UIs with independent navigation, like dashboards or social media feeds.
+
+<Mark>Parallel routes are like having multiple TV channels displayed on your screen at the same time.</Mark>
+
+It's the ability to show multiple pages or components side by side within the same overall layout.
+
+**Key Concepts:**
+
+- Use the `@folder` convention to create named slots (e.g., `@dashboard`, `@feed`)
+- Slots are passed as props to the parent layout
+- Enables conditional rendering based on user roles or other factors
+
+Here's a simple example of how parallel routes can be structured:
+
+```
+app/
+├── layout.tsx
+├── @dashboard
+│   ├── page.tsx
+│   └── analytics/
+│       └── page.tsx
+└── @feed
+    ├── page.tsx
+    └── trending/
+        └── page.tsx
+```
+
+In this structure, you can render different combinations of dashboard and feed content simultaneously.
+
+## Conclusion
+
+We can leverage these concepts to create a more intuitive and maintainable application structure. Try refactoring an existing project or starting a new one using these concepts.
+
+### Resources
+
+- [Next.js App Router Documentation](https://nextjs.org/docs/app)

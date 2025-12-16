@@ -1,7 +1,7 @@
-import { blogPosts } from "@/data/content";
+import { getPostBySlug } from "@/lib/blog";
 
 export default function BlogSchema({ slug }: { slug: string }) {
-  const post = blogPosts.find((post) => post.slug === slug);
+  const post = getPostBySlug(slug);
 
   if (!post) return null;
 
