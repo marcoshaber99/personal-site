@@ -1,0 +1,173 @@
+---
+title: "Git Worktrees Explained"
+date: "2025-12-19"
+excerpt: "A practical guide to Git worktrees: mental model, real scenarios, and why it matters for AI-powered workflows."
+readTime: 8
+---
+
+The stash/unstash workflow is clunky. You're mid-feature, need to check something on another branch, so you stash, switch, do the thing, switch back, unstash. It works but it's annoying. Git worktrees fix this, and I wish I learned about them sooner.
+
+Worktrees let you have multiple branches checked out at the same time, in separate folders, sharing the same Git history.
+
+### What is a worktree?
+
+Quick refresher on how Git works under the hood.
+
+Your project has two parts:
+
+1. The `.git` folder. This is the database. It stores all your commits, branches, and history.
+2. The working directory. These are the actual files you see and edit.
+
+When you run `git checkout main`, you're telling Git to take the snapshot of files from that branch and put them in your working directory. That's what "checked out" means.
+
+The problem? You only have one working directory. So you can only have one branch checked out at a time.
+
+A worktree is a second working directory that points to the same `.git` database. Different folder, different branch, same history.
+
+### The commands
+
+There are only three you need:
+
+**Create a worktree:**
+```bash
+git worktree add <path> <branch>
+```
+
+Example: `git worktree add ../my-project-hotfix hotfix-branch`
+
+This creates a new folder at that path with the branch checked out.
+
+**List all worktrees:**
+```bash
+git worktree list
+```
+
+**Remove a worktree:**
+```bash
+git worktree remove <path>
+```
+
+That's it. Three commands.
+
+### A real workflow
+
+You're on a feature branch, mid-work. You've made some changes but haven't committed yet.
+```bash
+git status
+On branch feature/itinerary-builder
+Changes not staged for commit:
+    modified:   src/components/sidebar.tsx
+```
+
+Your teammate messages you: "Can you check something on main real quick?"
+
+Instead of stashing, you create a worktree:
+```bash
+git worktree add ../my-project-main main
+cd ../my-project-main
+```
+
+Now you have a separate folder with `main` checked out. Your original folder is untouched. Dev server still running, files exactly where you left them.
+
+You check whatever needed checking. Maybe you even make a fix, commit, and push. Then you clean up:
+```bash
+cd ../my-project
+git worktree remove ../my-project-main
+```
+
+Back to your feature. No stashing. No context lost.
+
+<Callout type="info">
+Each branch can only be checked out in one place at a time. If `main` is already checked out in your main folder, you can't create a worktree for it. You'd need to switch to a different branch first.
+</Callout>
+
+### Things you'll forget (at first)
+
+A worktree is a separate folder. That means:
+
+**Dependencies aren't shared.** Your `node_modules` doesn't carry over. You'll need to run `pnpm install` (or `npm install`, whatever you use) in the new worktree.
+
+**Environment files aren't there.** If your `.env` or `.env.local` is in `.gitignore` (it should be), it won't exist in the worktree. Copy it over:
+```bash
+cp ../my-project/.env.local .env.local
+```
+
+This feels annoying the first time. But it makes sense once you realize the worktree is just a folder with a pointer back to your Git database. It doesn't know about your ignored files.
+
+<Callout type="tip">
+If you're using Cursor or another tool that creates worktrees automatically, you can configure this setup to run every time. We'll cover that next.
+</Callout>
+
+### Why this matters for AI workflows
+
+Here's where worktrees become more than a nice-to-have.
+
+Tools like Cursor now have "parallel agents" that can run tasks in the background while you keep working. The way they do this? Worktrees.
+
+When you run an agent in "worktree" mode, Cursor:
+
+1. Creates a worktree in `~/.cursor/worktrees/your-repo/`
+2. Copies your current files there
+3. Runs the agent in isolation
+4. Gives you an "Apply" button to merge the changes back
+
+The agent can edit files, run builds, break things. Doesn't matter. Your actual working directory stays clean until you decide to apply the changes.
+
+You can also run the same prompt on multiple models at once. Each runs in its own worktree. You compare the results, pick the best one.
+
+As AI coding tools get more powerful, this pattern will become normal. Worktrees make it possible.
+
+
+### Setting up Cursor for worktrees
+
+You can tell Cursor what to run every time it creates a worktree. No more manual `pnpm install` and copying `.env` files.
+
+Create a file at `.cursor/worktrees.json`:
+```json
+{
+  "setup-worktree": [
+    "pnpm install",
+    "cp $ROOT_WORKTREE_PATH/.env.local .env.local"
+  ]
+}
+```
+
+`$ROOT_WORKTREE_PATH` points to your main project folder.
+
+Now when Cursor spins up a parallel agent, it automatically installs dependencies and copies your env file. Commit this to your repo so it's always there.
+
+<Callout type="tip">
+If your project has database migrations or a build step, add those too. The commands run in order.
+</Callout>
+
+
+### When to use worktrees
+
+Not every situation needs a worktree. Here's when they make sense:
+
+**Use a worktree when:**
+
+- You have uncommitted work and need to switch context.
+- You're running something risky you might want to throw away later.
+- You're using AI tools that run tasks in parallel (Cursor, for example).
+
+If your working directory is clean and it's a quick task, normal checkout is fine. Worktrees add a bit of overhead. But for anything where you don't want to lose your current context, they're worth it.
+
+### Wrapping up
+
+Git worktrees aren't new, but they're underused. Most people don't know they exist or assume they're too advanced to bother with.
+
+They're not. Just three commands, and you'll rarely need to stash again.
+
+And with AI tools increasingly running tasks in parallel, I think worktrees are going from "nice to know" to pretty essential. Worth learning now.
+
+
+<LinkCard 
+  title="Git Worktree Documentation" 
+  href="https://git-scm.com/docs/git-worktree" 
+/>
+
+<LinkCard 
+  title="Cursor Parallel Agents" 
+  href="https://cursor.com/docs/configuration/worktrees" 
+/>

@@ -118,11 +118,6 @@ pre {
   overflow-x: auto;
 }
 
-pre > code {
-  display: block;
-  padding: 1em;
-}
-
 /* Steps component counter */
 .steps-container {
   counter-reset: step;

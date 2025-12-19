@@ -1,45 +1,69 @@
-/* Add this to your prism-theme.css */
+/* Prism theme inspired by GitHub's clean and professional look */
+
+:root {
+  --prism-text: #24292e;
+  --prism-comment: #6a737d;
+  --prism-keyword: #cf222e;
+  --prism-string: #0a3069;
+  --prism-function: #8250df;
+  --prism-variable: #953800;
+  --prism-constant: #0550ae;
+}
+
+.dark {
+  --prism-text: #f8f9fa;
+  --prism-comment: #8b949e;
+  --prism-keyword: #ff7b72;
+  --prism-string: #a5d6ff;
+  --prism-function: #d2a8ff;
+  --prism-variable: #ffa657;
+  --prism-constant: #79c0ff;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #24292e;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  color: var(--prism-text);
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  font-size: 0.9em;
+  line-height: 1.6;
   tab-size: 4;
   hyphens: none;
 }
 
 pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
-  border-radius: 0.3em;
-  background: #f6f8fa;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 
 :not(pre) > code[class*="language-"] {
-  padding: 0.1em 0.3em;
-  border-radius: 0.3em;
-  background: #f6f8fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.375rem;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  font-size: 0.875em;
 }
 
+.dark :not(pre) > code[class*="language-"] {
+  background: #0e0e0e;
+  border: 1px solid #1f1f1f;
+}
+
+/* Tokens */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6a737d;
+  color: var(--prism-comment);
 }
 
 .token.punctuation {
-  color: #24292e;
-}
-
-.token.namespace {
+  color: var(--prism-text);
   opacity: 0.7;
 }
 
@@ -50,7 +74,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #005cc5;
+  color: var(--prism-constant);
 }
 
 .token.selector,
@@ -59,125 +83,36 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #032f62;
+  color: var(--prism-string);
 }
 
 .token.operator,
 .token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #d73a49;
+.token.url {
+  color: var(--prism-keyword);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #d73a49;
+  color: var(--prism-keyword);
 }
 
 .token.function,
 .token.class-name {
-  color: #6f42c1;
+  color: var(--prism-function);
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #e36209;
+  color: var(--prism-variable);
 }
 
-.token.important,
 .token.bold {
   font-weight: bold;
 }
 
 .token.italic {
   font-style: italic;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --prism-background: #011627;
-    --prism-color: #d6deeb;
-  }
-}
-
-.dark {
-  --prism-background: #011627;
-  --prism-color: #d6deeb;
-}
-
-.dark code[class*="language-"],
-.dark pre[class*="language-"] {
-  color: var(--prism-color);
-  background: var(--prism-background);
-}
-
-.dark pre[class*="language-"] {
-  background: var(--prism-background);
-}
-
-.dark :not(pre) > code[class*="language-"] {
-  background: var(--prism-background);
-}
-
-.dark .token.comment,
-.dark .token.prolog,
-.dark .token.doctype,
-.dark .token.cdata {
-  color: #637777;
-}
-
-.dark .token.punctuation {
-  color: #c792ea;
-}
-
-.dark .token.property,
-.dark .token.tag,
-.dark .token.boolean,
-.dark .token.number,
-.dark .token.constant,
-.dark .token.symbol,
-.dark .token.deleted {
-  color: #7fdbca;
-}
-
-.dark .token.selector,
-.dark .token.attr-name,
-.dark .token.string,
-.dark .token.char,
-.dark .token.builtin,
-.dark .token.inserted {
-  color: #addb67;
-}
-
-.dark .token.operator,
-.dark .token.entity,
-.dark .token.url,
-.dark .language-css .token.string,
-.dark .style .token.string {
-  color: #ff9cac;
-}
-
-.dark .token.atrule,
-.dark .token.attr-value,
-.dark .token.keyword {
-  color: #c792ea;
-}
-
-.dark .token.function,
-.dark .token.class-name {
-  color: #82aaff;
-}
-
-.dark .token.regex,
-.dark .token.important,
-.dark .token.variable {
-  color: #ecc48d;
 }

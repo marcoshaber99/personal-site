@@ -27,8 +27,9 @@ const components: MDXRemoteProps["components"] = {
         </code>
       );
     }
-    return <CodeBlock className={className}>{children as string}</CodeBlock>;
+    return <code className={className}>{children}</code>;
   },
+  pre: ({ children, className }) => <CodeBlock className={className}>{children}</CodeBlock>,
   a: ({ children, href }) => (
     <a
       href={href}
@@ -61,6 +62,8 @@ export async function generateMetadata({
     };
   }
 
+  const ogImage = `/og/${slug}-og.png`;
+
   return {
     title: post.title,
     description: post.excerpt,
@@ -70,10 +73,23 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.date,
       authors: ["Marco Haber"],
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImage],
     },
   };
 }
-
 export default async function BlogPost({
   params,
 }: {
