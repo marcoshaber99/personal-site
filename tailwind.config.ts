@@ -82,6 +82,18 @@ const config: Config = {
         mono: ["var(--font-geist-mono)"],
         ppEditorialNew: ["var(--font-pp-editorial-new)"],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            "code::before": {
+              content: '""',
+            },
+            "code::after": {
+              content: '""',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [

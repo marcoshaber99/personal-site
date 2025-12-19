@@ -14,8 +14,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           </code>
         );
       }
-      return <CodeBlock className={className}>{children as string}</CodeBlock>;
+      return <code className={className}>{children}</code>;
     },
+    pre: ({ children, className }) => <CodeBlock className={className}>{children}</CodeBlock>,
     a: ({ children, href }) => (
       <a
         href={href}
