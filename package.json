@@ -27,7 +27,7 @@
     "lucide-react": "^0.441.0",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.4.7",
-    "next": "14.2.11",
+    "next": "14.2.35",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
     "prismjs": "^1.29.0",
