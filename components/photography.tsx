@@ -99,12 +99,8 @@ export default function Photography() {
       {/* Bento Grid - Aceternity-inspired */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[160px] sm:auto-rows-[180px] gap-3">
         {photographs.map((photo, index) => (
-          <motion.div
+          <div
             key={photo.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            viewport={{ once: true }}
             className={cn(
               "group relative cursor-pointer overflow-hidden rounded-xl",
               "border border-neutral-200 dark:border-neutral-800",
@@ -132,7 +128,7 @@ export default function Photography() {
               height={photo.height}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-          </motion.div>
+          </div>
         ))}
       </div>
 

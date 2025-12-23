@@ -130,7 +130,7 @@ pre {
 
 @layer components {
   .section-heading {
-    @apply font-mono text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100;
+    @apply font-calSans text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100;
   }
 
   .section-subheading {

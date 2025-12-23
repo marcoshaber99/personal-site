@@ -81,6 +81,7 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
         ppEditorialNew: ["var(--font-pp-editorial-new)"],
+        calSans: ["var(--font-cal-sans)"],
       },
       typography: {
         DEFAULT: {

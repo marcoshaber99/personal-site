@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "motion/react";
 import { projects } from "@/data/content";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,16 +8,12 @@ import { SectionTitle } from "./section-title";
 export default function Projects() {
   return (
     <section className="relative" aria-labelledby="projects-title">
-      <SectionTitle title="Recent Projects" />
+      <SectionTitle title="Working on" />
 
       <div className="grid gap-4 sm:gap-6" role="list">
-        {projects.map((project, index) => (
-          <motion.div
+        {projects.map((project) => (
+          <div
             key={project.title}
-            initial={{ opacity: 0, transform: "translateY(20px)" }}
-            whileInView={{ opacity: 1, transform: "translateY(0)" }}
-            transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
             className="group relative"
             role="listitem"
           >
@@ -128,7 +121,7 @@ export default function Projects() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
