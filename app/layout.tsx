@@ -5,7 +5,7 @@ import "./prism-theme.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { ppEditorialNew } from "@/lib/fonts";
+import { ppEditorialNew, calSans } from "@/lib/fonts";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Background } from "@/components/bg-gradient";
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${ppEditorialNew.variable} font-sans scroll-smooth`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${ppEditorialNew.variable} ${calSans.variable} font-sans scroll-smooth`}
     >
       <body className="flex flex-col min-h-screen antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>

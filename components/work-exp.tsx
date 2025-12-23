@@ -1,7 +1,4 @@
-"use client";
-
 import { workExperience } from "@/data/content";
-import { motion } from "motion/react";
 import { SectionTitle } from "./section-title";
 
 export default function WorkExp() {
@@ -11,12 +8,8 @@ export default function WorkExp() {
 
       <div className="space-y-4">
         {workExperience.map((job, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            viewport={{ once: true }}
             className="group relative"
           >
             {/* Subtle hover effect background */}
@@ -47,7 +40,7 @@ export default function WorkExp() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

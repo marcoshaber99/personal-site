@@ -30,3 +30,8 @@ export const ppEditorialNew = localFont({
   ],
   variable: "--font-pp-editorial-new",
 });
+
+export const calSans = localFont({
+  src: "../app/fonts/CalSans-Regular.ttf",
+  variable: "--font-cal-sans",
+});

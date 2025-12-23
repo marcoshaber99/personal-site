@@ -1,11 +1,15 @@
 ---
-title: "Git Worktrees Explained"
+title: "Understanding Git Worktrees"
 date: "2025-12-19"
 excerpt: "A practical guide to Git worktrees: mental model, real scenarios, and why it matters for AI-powered workflows."
 readTime: 8
 ---
 
-The stash/unstash workflow is clunky. You're mid-feature, need to check something on another branch, so you stash, switch, do the thing, switch back, unstash. It works but it's annoying. Git worktrees fix this, and I wish I learned about them sooner.
+The stash/unstash workflow is clunky.
+
+You're mid-feature, need to check something on another branch. So you stash, switch, do the thing, switch back, unstash. It works but it's annoying.
+
+Git worktrees fix this.
 
 Worktrees let you have multiple branches checked out at the same time, in separate folders, sharing the same Git history.
 
@@ -143,7 +147,7 @@ If your project has database migrations or a build step, add those too. The comm
 
 ### When to use worktrees
 
-Not every situation needs a worktree. Here's when they make sense:
+Not every situation needs a worktree.
 
 **Use a worktree when:**
 

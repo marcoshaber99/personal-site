@@ -1,5 +1,5 @@
 export const about: string =
-  "Developer passionate about crafting modern, functional web apps using React, Next.js, and TypeScript. Quick learner, listener, and team player.";
+  "Full-stack developer focused on building products that work well, feel good to use, and get the details right.";
 
 export const projects: {
   title: string;
@@ -13,6 +13,17 @@ export const projects: {
   logoDark?: string;
 }[] = [
   {
+    title: "CurateWay",
+    description:
+      "An AI-powered travel assistant for Cyprus that delivers personalized, quality-vetted experiences. (in early development)",
+    link: "https://curateway.com", 
+    category: "Web Application",
+    date: "2025",
+    isPrivate: true, 
+    logo: "/curateway-logo-dark.svg", 
+    logoDark: "/curateway-logo-white.svg", 
+  },
+  {
     title: "haber-ui",
     description:
       "A collection of React + Tailwind v4 components specifically designed for AI applications, following the shadcn/ui installable component approach.",
@@ -24,18 +35,7 @@ export const projects: {
     logo: "/haberui-logo.svg",
     logoDark: "/haberui-logo-dark.svg",
   },
-  {
-    title: "Vivlio",
-    description:
-      "An open-source, developer-focused educational blog platform (in early development). ",
-    link: "https://vivlio.dev",
-    github: "https://github.com/marcoshaber99/minimal-ai-blog",
-    category: "Web Application",
-    date: "2025",
-    isPrivate: false,
-    logo: "/vivlio-logo-dark.svg",
-    logoDark: "/vivlio-logo.svg",
-  },
+  
 ];
 
 export const workExperience: {
@@ -124,7 +124,7 @@ export const photographs: {
 export const footerText = "Marco Haber. All rights reserved.";
 
 export const skills: Record<string, string[]> = {
-  Languages: ["JavaScript", "TypeScript", "Python", "HTML", "CSS", "SQL"],
-  Frameworks: ["React JS", "Next JS", "Node JS", "Express JS", "TailwindCSS"],
-  "Software Skills": ["Git", "GitHub", "Figma", "AWS (S3)"],
+  Frontend: ["React", "Next.js", "TypeScript", "Tailwind"],
+  Backend: ["Node.js", "PostgreSQL", "Supabase", "Convex"],
+  Tools: ["Git", "Vercel", "Clerk", "Stripe"],
 };
