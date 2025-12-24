@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./prism-theme.css";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -11,11 +11,35 @@ import Footer from "@/components/footer";
 import { Background } from "@/components/bg-gradient";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.marcohaber.dev"),
   title: {
     default: "Marco Haber - Portfolio",
     template: "%s | Marco Haber",
   },
   description: "Personal portfolio and blog of Marco Haber",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.marcohaber.dev",
+    siteName: "Marco Haber",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
 };
 
 export default function RootLayout({

@@ -79,7 +79,7 @@ export const photographs: {
   },
   {
     id: 3,
-    src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr611DIFS0thQgU3HEwbi9kWKOZy4VpGPvXlAuB",
+    src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6WyChxYjIdEYqQgn7uOiWbsfj05vKH9oz8T3Z",
     alt: "Constellations",
     width: 1200,
     height: 1600,
@@ -100,14 +100,14 @@ export const photographs: {
   },
   {
     id: 6,
-    src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6ENiy1YyKch0W5iv7yxAH8w2PrlN3jsbuf1YU",
+    src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6PW6p84DQgr1Uu62LfeS0IYWAX9BkOCzyGEnv",
     alt: "Route Handler",
     width: 1200,
     height: 1600,
   },
   {
     id: 7,
-    src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6LQ4PRZXsgtVR0MrHZ2w8uGNkBcS5ayPqeI7D",
+    src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr69hmI9gcvOoWstRPKm0fSEFk42d86iNCeTVcI",
     alt: "Protected Route",
     width: 1200,
     height: 1600,

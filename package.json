@@ -40,6 +40,12 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ],
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",

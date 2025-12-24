@@ -62,7 +62,7 @@ export async function generateMetadata({
     };
   }
 
-  const ogImage = `/og/${slug}-og.png`;
+  const ogImage = `/og/${slug}-og.webp`;
 
   return {
     title: post.title,

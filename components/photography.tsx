@@ -126,6 +126,8 @@ export default function Photography() {
               alt={photo.alt}
               width={photo.width}
               height={photo.height}
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              loading={index < 4 ? "eager" : "lazy"}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
