@@ -26,7 +26,7 @@ export default function About() {
 
         <div className="flex items-center gap-4">
           <Link
-            href="/resume.pdf"
+            href="/Marco_Haber_CV.pdf"
             download
             className="group inline-flex items-center gap-2 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >

@@ -64,6 +64,9 @@ pids
 # Thumbnails
 ._*
 
+# public assets
+public/resume.pdf
+
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
