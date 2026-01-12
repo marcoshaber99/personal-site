@@ -1,0 +1,73 @@
+---
+title: "Teaching Claude Code to Learn from Mistakes"
+date: "2026-01-10"
+excerpt: "I turned a workflow from Claude Code's creator into a plugin."
+readTime: 4
+---
+
+Boris Cherny created Claude Code. When he shared how his team uses it, one thing stood out:
+
+> "Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time."
+
+Simple idea. Every mistake becomes a rule. The project gets smarter over time.
+
+But doing this manually is easy to skip. You fix the bug, move on, forget to document it. A week later, Claude makes the same mistake.
+
+I built a plugin that makes this a single command.
+
+## The plugin
+
+It's called `learn`. After Claude makes a mistake, you run:
+```
+/learn:from
+```
+
+Paste the error or describe what went wrong. The plugin investigates, proposes a rule, and adds it to your CLAUDE.md.
+
+That's it.
+
+## Example
+
+TypeScript throws an error after Claude edits a file. I run:
+```
+/learn:from
+```
+
+Claude asks what went wrong. I paste the error:
+```
+Type 'string' is not assignable to type 'number'.
+  Property 'id' expected number but got string from API response.
+```
+
+Claude checks the recent changes, sees the pattern, and proposes:
+```
+Proposed rule:
+
+> API responses are untyped at runtime. Always validate and transform 
+> external data before assigning to typed variables.
+
+Add to CLAUDE.md? (yes/no)
+```
+
+I type `yes`. The rule is added.
+
+Next time Claude fetches from an API in this project, it knows to handle this.
+
+## Installation
+```bash
+/plugin marketplace add marcoshaber99/learn
+/plugin install learn@marcoshaber99-learn
+```
+
+That's it. Works on any project with a CLAUDE.md file.
+
+## The idea
+
+Every mistake becomes a rule. The longer you use Claude on a project, the fewer mistakes it makes.
+
+Your CLAUDE.md becomes a knowledge base built from real failures, not hypothetical best practices.
+
+<LinkCard 
+  title="learn - GitHub" 
+  href="https://github.com/marcoshaber99/learn" 
+/>
