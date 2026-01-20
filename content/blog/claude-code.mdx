@@ -18,7 +18,7 @@ I built a plugin that makes this a single command.
 ## The plugin
 
 It's called `learn`. After Claude makes a mistake, you run:
-```
+```bash
 /learn:from
 ```
 
@@ -29,21 +29,21 @@ That's it.
 ## Example
 
 TypeScript throws an error after Claude edits a file. I run:
-```
+```bash
 /learn:from
 ```
 
 Claude asks what went wrong. I paste the error:
-```
+```typescript
 Type 'string' is not assignable to type 'number'.
   Property 'id' expected number but got string from API response.
 ```
 
 Claude checks the recent changes, sees the pattern, and proposes:
-```
+```markdown
 Proposed rule:
 
-> API responses are untyped at runtime. Always validate and transform 
+> API responses are untyped at runtime. Always validate and transform
 > external data before assigning to typed variables.
 
 Add to CLAUDE.md? (yes/no)

@@ -21,7 +21,8 @@
 }
 
 code[class*="language-"],
-pre[class*="language-"] {
+pre[class*="language-"],
+pre code {
   color: var(--prism-text);
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   direction: ltr;
