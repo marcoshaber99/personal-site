@@ -1,9 +1,13 @@
 import { socialLinks } from "@/data/social-links";
+import NewsletterSignup from "@/components/newsletter-signup";
 
 export default function Footer() {
   return (
     <footer className="border-t border-neutral-200 dark:border-neutral-800">
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="mb-8">
+          <NewsletterSignup />
+        </div>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500 dark:text-neutral-400">
           <span>
             © {new Date().getFullYear()} Marco Haber
