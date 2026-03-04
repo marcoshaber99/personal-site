@@ -25,7 +25,7 @@ Seafloor covers 2018 to 2024. Around 86,000 vessel-year records total.
 
 THETIS-MRV is the EU's public ship emissions database, run by EMSA. Every large ship entering an EU port has to report its annual emissions. Not voluntary. EU law. Around 12,000 vessels per year, each with CO₂ totals, fuel consumption, distance traveled, ship type, operating company, and flag state.
 
-The flag state part is interesting. Ships aren't registered where their owners are. Greek companies register in Liberia. German companies flag in the Marshall Islands. Open registries. Lower taxes, less regulation. Nearly half of global shipping tonnage sails under just three flags: Panama, Liberia, and Marshall Islands.
+The flag state part is interesting. Ships aren't registered where their owners are. Greek companies register in Liberia. German companies flag in the Marshall Islands. Open registries. Lower taxes, less regulation. Panama, Liberia, and the Marshall Islands are the world's largest open registries. In this dataset, more vessels fly those three flags than any others.
 
 On the globe, this is immediately visible. The biggest clusters aren't in Europe or East Asia. They're in Central America, West Africa, and the Central Pacific. The geography tells you how the maritime industry actually works.
 
@@ -40,6 +40,8 @@ Instead, every vessel renders through a single `InstancedMesh`. One geometry, on
 The color for each dot comes from a logarithmic ramp. Raw CO₂ values range from a few hundred tonnes to over 125,000, so a linear scale would make everything look the same. Log-scaling spreads the distribution out. Blue for low emitters, through green and yellow, to red and pink for the heaviest polluters.
 
 Switching years is just swapping the buffer. No geometry rebuild, no new meshes. The binary files are fetched once and cached, so year transitions are near-instant after first load.
+
+The stack is React Three Fiber and Three.js, running on Next.js with a static export.
 
 ### Why binary, not JSON
 
