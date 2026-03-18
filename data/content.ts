@@ -1,5 +1,5 @@
 export const about: string =
-  "Full-stack developer focused on building products that work well, feel good to use, and get the details right.";
+  "Full-stack developer with hands-on experience building and shipping production web applications. Strong foundations in HTML, CSS, and JavaScript.";
 
 export const projects: {
   title: string;
@@ -13,29 +13,38 @@ export const projects: {
   logoDark?: string;
 }[] = [
   {
-    title: "CurateWay",
+    title: "Seafloor",
     description:
-      "An AI-powered travel assistant for Cyprus that delivers personalized, quality-vetted experiences. (in early development)",
-    link: "https://curateway.com", 
-    category: "Web Application",
-    date: "2025",
-    isPrivate: true, 
-    logo: "/curateway-logo-dark.svg", 
-    logoDark: "/curateway-logo-white.svg", 
-  },
-  {
-    title: "haber-ui",
-    description:
-      "A collection of React + Tailwind v4 components specifically designed for AI applications, following the shadcn/ui installable component approach.",
-    link: "https://haberui.com",
-    github: "https://github.com/marcoshaber99/haberui",
-    category: "UI Components",
+      "3D maritime emissions data visualization built with React Three Fiber, Three.js, and WebGL. Python data pipeline processing real vessel data.",
+    link: "https://seafloor.pages.dev",
+    github: "https://github.com/marcoshaber99/seafloor",
+    category: "Data Visualization",
     date: "2025",
     isPrivate: false,
-    logo: "/haberui-logo.svg",
-    logoDark: "/haberui-logo-dark.svg",
+    logo: "/seafloor.svg",
+    logoDark: "/seafloor-logo-dark.svg",
   },
-  
+  {
+    title: "Klio",
+    description:
+      "Building an AI-powered WhatsApp assistant for Cyprus real estate agents. Full-stack Next.js app with Convex, Clerk, Stripe, and Vercel AI SDK. (in development)",
+    category: "SaaS",
+    date: "2025",
+    isPrivate: true,
+    logo: "/klio.svg",
+    logoDark: "/klio-logo-dark.svg",
+  },
+  {
+    title: "CurateWay",
+    description:
+      "AI-powered travel platform for discovering authentic experiences in Cyprus. Full-stack Next.js 15 app with React 19, TypeScript, Convex, and Stripe payments. (in development)",
+    link: "https://curateway.com",
+    category: "Web Application",
+    date: "2025",
+    isPrivate: true,
+    logo: "/curateway-logo-dark.svg",
+    logoDark: "/curateway-logo-white.svg",
+  },
 ];
 
 export const workExperience: {
@@ -45,13 +54,22 @@ export const workExperience: {
   description: string[];
 }[] = [
   {
-    title: "Full Stack Developer",
-    company: "Panaline",
-    duration: "June 2023 - August 2024",
+    title: "Founder & Web Developer",
+    company: "LimassolWeb",
+    duration: "September 2024 - Present",
     description: [
-      "Developed a financial analysis tool using Python and Streamlit",
-      "Implemented data upload and expense allocation features",
-      "Designed customizable reporting for business insights",
+      "Run a web development agency building production websites for local businesses in Limassol",
+      "Translate client designs and requirements into responsive, cross-browser web interfaces",
+      "Built an e-commerce-ready site for a local candle business with product pages, testimonials, and newsletter integration",
+    ],
+  },
+  {
+    title: "Software Developer",
+    company: "Panaline",
+    duration: "August 2023 - June 2024",
+    description: [
+      "Built a financial analysis tool in Python and Streamlit for internal expense tracking",
+      "Automated data upload and expense allocation, reducing manual processing time",
     ],
   },
 ];
@@ -124,7 +142,7 @@ export const photographs: {
 export const footerText = "Marco Haber. All rights reserved.";
 
 export const skills: Record<string, string[]> = {
-  Frontend: ["React", "Next.js", "TypeScript", "Tailwind"],
-  Backend: ["Node.js", "PostgreSQL", "Supabase", "Convex"],
-  Tools: ["Git", "Vercel", "Clerk", "Stripe"],
+  Frontend: ["HTML5", "CSS3", "SCSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind"],
+  Backend: ["Node.js", "Python", "Convex", "PostgreSQL", "Supabase"],
+  Tools: ["Git", "Vercel", "Cloudflare", "Stripe", "Clerk", "Figma"],
 };
