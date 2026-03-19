@@ -1,5 +1,5 @@
 export const about: string =
-  "Full-stack developer with hands-on experience building and shipping production web applications. Strong foundations in HTML, CSS, and JavaScript.";
+  "Full-stack developer with hands-on experience building and shipping production web applications.";
 
 export const projects: {
   title: string;
@@ -13,26 +13,26 @@ export const projects: {
   logoDark?: string;
 }[] = [
   {
+    title: "Klio",
+    description:
+      "Building an AI-powered WhatsApp assistant for Cyprus real estate agents. Full-stack Next.js app with Convex, Clerk, Stripe, and Vercel AI SDK. (in development)",
+    category: "SaaS",
+    date: "2026",
+    isPrivate: true,
+    logo: "/klio.svg",
+    logoDark: "/klio-logo-dark.svg",
+  },
+  {
     title: "Seafloor",
     description:
       "3D maritime emissions data visualization built with React Three Fiber, Three.js, and WebGL. Python data pipeline processing real vessel data.",
     link: "https://seafloor.pages.dev",
     github: "https://github.com/marcoshaber99/seafloor",
     category: "Data Visualization",
-    date: "2025",
+    date: "2026",
     isPrivate: false,
     logo: "/seafloor.svg",
     logoDark: "/seafloor-logo-dark.svg",
-  },
-  {
-    title: "Klio",
-    description:
-      "Building an AI-powered WhatsApp assistant for Cyprus real estate agents. Full-stack Next.js app with Convex, Clerk, Stripe, and Vercel AI SDK. (in development)",
-    category: "SaaS",
-    date: "2025",
-    isPrivate: true,
-    logo: "/klio.svg",
-    logoDark: "/klio-logo-dark.svg",
   },
   {
     title: "CurateWay",
@@ -40,7 +40,7 @@ export const projects: {
       "AI-powered travel platform for discovering authentic experiences in Cyprus. Full-stack Next.js 15 app with React 19, TypeScript, Convex, and Stripe payments. (in development)",
     link: "https://curateway.com",
     category: "Web Application",
-    date: "2025",
+    date: "2026",
     isPrivate: true,
     logo: "/curateway-logo-dark.svg",
     logoDark: "/curateway-logo-white.svg",
@@ -60,7 +60,7 @@ export const workExperience: {
     description: [
       "Run a web development agency building production websites for local businesses in Limassol",
       "Translate client designs and requirements into responsive, cross-browser web interfaces",
-      "Built an e-commerce-ready site for a local candle business with product pages, testimonials, and newsletter integration",
+      "Built an e-commerce-ready site for a local candle business with product pages and testimonials",
     ],
   },
   {
