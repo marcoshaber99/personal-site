@@ -18,7 +18,7 @@ export function BlogPostsList({ posts }: { posts: BlogPostMeta[] }) {
           >
             <div className="space-y-2 sm:space-y-3">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <h3 className="text-base sm:text-lg font-medium group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors line-clamp-2 sm:line-clamp-1">
+                <h3 className="text-base sm:text-lg font-medium group-hover:text-blue-600 dark:group-hover:text-green-400 transition-colors line-clamp-2 sm:line-clamp-1">
                   {post.title}
                 </h3>
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-neutral-500">
@@ -32,7 +32,7 @@ export function BlogPostsList({ posts }: { posts: BlogPostMeta[] }) {
                 {post.excerpt}
               </p>
 
-              <div className="flex items-center text-sm text-green-600 dark:text-green-400 group-hover:translate-x-1 transition-transform duration-200">
+              <div className="flex items-center text-sm text-blue-600 dark:text-green-400 group-hover:translate-x-1 transition-transform duration-200">
                 Read more
                 <ArrowRightIcon className="ml-1 h-4 w-4" />
               </div>

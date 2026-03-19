@@ -48,7 +48,7 @@ export default function NewsletterSignup() {
         <Input
           type="email"
           name="email"
-          placeholder="you@example.com"
+          placeholder="your email"
           required
           className="max-w-xs"
         />

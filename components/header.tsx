@@ -62,7 +62,7 @@ export function Header() {
                   href="/"
                   className="font-pp-ultrabold text-xl tracking-tighter hover:opacity-70 transition-opacity"
                 >
-                  MH<span className="text-blue-500 dark:text-green-400">.</span>
+                  MH<span className="text-blue-600 dark:text-green-400">.</span>
                 </Link>
               </motion.div>
             )}
