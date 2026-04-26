@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     default: "Marco Haber - Portfolio",
     template: "%s | Marco Haber",
   },
-  description: "Personal portfolio and blog of Marco Haber",
+  description:
+    "Marco Haber — full-stack developer building production web applications and AI-powered SaaS products from Limassol, Cyprus.",
   openGraph: {
     type: "website",
     locale: "en_US",

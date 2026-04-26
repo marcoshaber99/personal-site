@@ -1,5 +1,7 @@
 export const about: string =
-  "Full-stack developer with hands-on experience building and shipping production web applications.";
+  "Full-stack developer building production web applications and AI-powered SaaS products. I work in React, Next.js and TypeScript, integrate LLM APIs and agentic workflows, and run my own backend services on a self-managed VPS.\n\nI like owning a project end to end.";
+
+export const tagline: string = "Building web and AI products from Limassol";
 
 export const projects: {
   title: string;
@@ -9,41 +11,50 @@ export const projects: {
   category: string;
   date: string;
   isPrivate: boolean;
-  logo: string;
-  logoDark?: string;
 }[] = [
+  {
+    title: "Stormchaser",
+    description:
+      "Quantitative weather prediction-market trading system for Kalshi. Ensemble forecasting (NWS, GFS, ECMWF) with per-city bias correction, inverse-MAE model weighting, and Student-t probability distributions over temperature brackets. Python data pipelines, PostgreSQL, automated Telegram alerts, deployed on a self-managed Hetzner VPS.",
+    category: "Quantitative Trading",
+    date: "2025 – present",
+    isPrivate: true,
+  },
+  {
+    title: "ProfitScan",
+    description:
+      "SaaS profitability-analysis tool that ingests financial files, allocates shared expenses across transactions using configurable rules, and reports net profit per product, customer and region. Next.js, FastAPI, PostgreSQL on Neon, Cloudflare R2, Clerk. Live in production with paying customers.",
+    link: "https://profitscan.app",
+    category: "SaaS",
+    date: "2025 – present",
+    isPrivate: true,
+  },
   {
     title: "Klio",
     description:
-      "Building an AI-powered WhatsApp assistant for Cyprus real estate agents. Full-stack Next.js app with Convex, Clerk, Stripe, and Vercel AI SDK. (in development)",
-    category: "SaaS",
-    date: "2026",
+      "AI-powered WhatsApp assistant SaaS for Cyprus real estate agents, in active development. Multilingual responses (English, Greek, Russian) backed by a RAG knowledge base of Cyprus property regulations, lead qualification via tool calls, and human handoff. Next.js, Convex, Vercel AI SDK with Claude Sonnet, WhatsApp Business Cloud API.",
+    category: "AI / SaaS",
+    date: "2025 – present",
     isPrivate: true,
-    logo: "/klio.svg",
-    logoDark: "/klio-logo-dark.svg",
   },
   {
     title: "Seafloor",
     description:
-      "3D maritime emissions data visualization built with React Three Fiber, Three.js, and WebGL. Python data pipeline processing real vessel data.",
+      "Open-source 3D maritime emissions globe visualizing six years of EU THETIS-MRV vessel CO2 data. Built with React Three Fiber, Three.js and WebGL, served from Cloudflare Pages, with a Python pipeline preparing the dataset.",
     link: "https://seafloor.pages.dev",
     github: "https://github.com/marcoshaber99/seafloor",
     category: "Data Visualization",
     date: "2026",
     isPrivate: false,
-    logo: "/seafloor.svg",
-    logoDark: "/seafloor-logo-dark.svg",
   },
   {
     title: "CurateWay",
     description:
-      "AI-powered travel platform for discovering authentic experiences in Cyprus. Full-stack Next.js 15 app with React 19, TypeScript, Convex, and Stripe payments. (in development)",
+      "AI-powered travel platform for discovering authentic experiences in Cyprus. Full-stack Next.js, React, TypeScript, Convex, Clerk and Stripe.",
     link: "https://curateway.com",
     category: "Web Application",
-    date: "2026",
+    date: "2024 – present",
     isPrivate: true,
-    logo: "/curateway-logo-dark.svg",
-    logoDark: "/curateway-logo-white.svg",
   },
 ];
 
@@ -54,22 +65,22 @@ export const workExperience: {
   description: string[];
 }[] = [
   {
-    title: "Founder & Web Developer",
+    title: "Founder & Full-Stack Developer",
     company: "LimassolWeb",
-    duration: "September 2024 - Present",
+    duration: "September 2024 – Present",
     description: [
-      "Run a web development agency building production websites for local businesses in Limassol",
-      "Translate client designs and requirements into responsive, cross-browser web interfaces",
-      "Built an e-commerce-ready site for a local candle business with product pages and testimonials",
+      "Run an independent web development practice serving local businesses, owning the full project lifecycle from client consultation through design, build, deployment and ongoing maintenance.",
+      "Build production websites with Next.js, Astro, TypeScript and Tailwind, deployed on Vercel and Cloudflare with custom domains.",
+      "Deliver bilingual (English / Greek) sites tailored to the Cyprus market, including a multilingual restaurant site built on Next.js 15 with next-intl.",
     ],
   },
   {
     title: "Software Developer",
     company: "Panaline",
-    duration: "August 2023 - June 2024",
+    duration: "August 2023 – June 2024",
     description: [
-      "Built a financial analysis tool in Python and Streamlit for internal expense tracking",
-      "Automated data upload and expense allocation, reducing manual processing time",
+      "Built an internal financial analysis tool in Python and Streamlit for expense tracking and allocation, used by the operations team.",
+      "Automated data ingestion and expense allocation logic, reducing manual processing time on recurring reports.",
     ],
   },
 ];
@@ -142,7 +153,46 @@ export const photographs: {
 export const footerText = "Marco Haber. All rights reserved.";
 
 export const skills: Record<string, string[]> = {
-  Frontend: ["HTML5", "CSS3", "SCSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind"],
-  Backend: ["Node.js", "Python", "Convex", "PostgreSQL", "Supabase"],
-  Tools: ["Git", "Vercel", "Cloudflare", "Stripe", "Clerk", "Figma"],
+  Frontend: [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind",
+    "shadcn/ui",
+    "TanStack Query",
+    "React Three Fiber",
+    "HTML5",
+    "CSS3",
+    "SCSS",
+  ],
+  Backend: [
+    "Node.js",
+    "Python",
+    "FastAPI",
+    "Convex",
+    "PostgreSQL",
+    "REST APIs",
+    "WebSockets",
+  ],
+  "AI & Data": [
+    "Anthropic API",
+    "OpenAI API",
+    "Vercel AI SDK",
+    "RAG",
+    "Vector search",
+    "Agentic workflows",
+    "pandas",
+  ],
+  Infrastructure: [
+    "Vercel",
+    "Cloudflare",
+    "Neon",
+    "Railway",
+    "Hetzner VPS",
+    "Docker",
+    "systemd",
+    "Stripe",
+    "Clerk",
+  ],
+  Tools: ["Git", "Linux", "pnpm", "uv", "Figma"],
 };

@@ -1,4 +1,4 @@
-import { about } from "@/data/content";
+import { about, tagline } from "@/data/content";
 import Link from "next/link";
 import { DownloadIcon } from "lucide-react";
 
@@ -16,12 +16,16 @@ export default function About() {
             </Link>
           </div>
           <h2 className="text-lg text-muted-foreground sm:text-xl font-mono">
-            Full Stack Developer
+            {tagline}
           </h2>
         </div>
 
-        <div className="max-w-[60ch] leading-relaxed text-muted-foreground">
-          <p className="text-base sm:text-lg">{about}</p>
+        <div className="max-w-[68ch] leading-relaxed text-muted-foreground space-y-4">
+          {about.split("\n\n").map((paragraph, i) => (
+            <p key={i} className="text-base sm:text-lg">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <div className="flex items-center gap-4">
