@@ -1,5 +1,5 @@
 export const about: string =
-  "Full-stack developer building production web applications and AI-powered SaaS products. I work in React, Next.js and TypeScript, integrate LLM APIs and agentic workflows, and run my own backend services on a self-managed VPS.\n\nI like owning a project end to end.";
+  "Full-stack developer building production web applications and AI-powered SaaS products. I work in React, Next.js and TypeScript, integrate LLM APIs, and like owning a project end to end.";
 
 export const tagline: string = "Building web and AI products from Limassol";
 
@@ -23,7 +23,7 @@ export const projects: {
   {
     title: "ProfitScan",
     description:
-      "SaaS profitability-analysis tool that ingests financial files, allocates shared expenses across transactions using configurable rules, and reports net profit per product, customer and region. Next.js, FastAPI, PostgreSQL on Neon, Cloudflare R2, Clerk. Live in production with paying customers.",
+      "SaaS profitability-analysis tool that ingests financial files, allocates shared expenses across transactions using configurable rules, and reports net profit per product, customer and region. Next.js, FastAPI, PostgreSQL on Neon, Cloudflare R2, Clerk. Live in production and currently being shown to small businesses in Cyprus.",
     link: "https://profitscan.app",
     category: "SaaS",
     date: "2025 – present",
@@ -69,9 +69,9 @@ export const workExperience: {
     company: "LimassolWeb",
     duration: "September 2024 – Present",
     description: [
-      "Run an independent web development practice serving local businesses, owning the full project lifecycle from client consultation through design, build, deployment and ongoing maintenance.",
+      "Building an independent web development practice serving local businesses in Limassol, owning the full project lifecycle from client consultation through design, build, deployment and ongoing maintenance.",
       "Build production websites with Next.js, Astro, TypeScript and Tailwind, deployed on Vercel and Cloudflare with custom domains.",
-      "Deliver bilingual (English / Greek) sites tailored to the Cyprus market, including a multilingual restaurant site built on Next.js 15 with next-intl.",
+      "Working on a multilingual (English / Greek) restaurant site built on Next.js 15 with next-intl, tailored for the Cyprus market.",
     ],
   },
   {
