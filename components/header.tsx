@@ -12,6 +12,10 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const pathname = usePathname();
   const isInBlogPost = pathname?.startsWith("/blog/") && pathname !== "/blog";
+  const isBlogIndex = pathname === "/blog";
+  const showBackLink = isInBlogPost || isBlogIndex;
+  const backHref = isInBlogPost ? "/blog" : "/";
+  const backLabel = isInBlogPost ? "Blog" : "Home";
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -35,20 +39,20 @@ export function Header() {
       >
         <div className="flex items-center min-w-[80px]">
           <AnimatePresence mode="wait">
-            {isInBlogPost ? (
+            {showBackLink ? (
               <motion.div
-                key="home-link"
+                key="back-link"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
               >
                 <Link
-                  href="/"
+                  href={backHref}
                   className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-all duration-200 group py-1.5 px-3 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                  aria-label="Back to Home"
+                  aria-label={`Back to ${backLabel}`}
                 >
                   <ChevronLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
-                  <span className="text-sm font-medium">Home</span>
+                  <span className="text-sm font-medium">{backLabel}</span>
                 </Link>
               </motion.div>
             ) : (
@@ -56,7 +60,6 @@ export function Header() {
                 key="logo"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="pl-2"
               >
                 <Link
                   href="/"

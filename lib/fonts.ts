@@ -17,21 +17,6 @@ export const ppEditorialNew = localFont({
       weight: "800",
       style: "normal",
     },
-    {
-      path: "../app/fonts/PPEditorialNew-UltraboldItalic.otf",
-      weight: "800",
-      style: "italic",
-    },
-    {
-      path: "../app/fonts/PPEditorialNew-Ultralight.otf",
-      weight: "200",
-      style: "normal",
-    },
   ],
   variable: "--font-pp-editorial-new",
-});
-
-export const calSans = localFont({
-  src: "../app/fonts/CalSans-Regular.ttf",
-  variable: "--font-cal-sans",
 });

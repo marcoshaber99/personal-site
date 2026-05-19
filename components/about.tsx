@@ -7,15 +7,10 @@ export default function About() {
     <section className="relative">
       <div className="space-y-8">
         <div className="space-y-3">
-          <div>
-            <Link
-              href="/"
-              className="inline-block font-pp-italic text-4xl sm:text-5xl hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors duration-200"
-            >
-              Marco Haber
-            </Link>
-          </div>
-          <h2 className="text-lg text-muted-foreground sm:text-xl font-mono">
+          <h1 className="font-pp-italic text-4xl sm:text-5xl text-neutral-900 dark:text-neutral-100">
+            Marco Haber
+          </h1>
+          <h2 className="text-lg sm:text-xl text-muted-foreground font-normal tracking-tight">
             {tagline}
           </h2>
         </div>

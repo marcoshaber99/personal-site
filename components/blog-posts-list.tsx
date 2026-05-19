@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRightIcon } from "lucide-react";
 import type { BlogPostMeta } from "@/lib/blog";
 
 export function BlogPostsList({ posts }: { posts: BlogPostMeta[] }) {
@@ -31,11 +30,6 @@ export function BlogPostsList({ posts }: { posts: BlogPostMeta[] }) {
               <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
                 {post.excerpt}
               </p>
-
-              <div className="flex items-center text-sm text-blue-600 dark:text-green-400 group-hover:translate-x-1 transition-transform duration-200">
-                Read more
-                <ArrowRightIcon className="ml-1 h-4 w-4" />
-              </div>
             </div>
           </Link>
         </div>

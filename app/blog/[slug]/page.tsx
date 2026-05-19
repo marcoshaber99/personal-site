@@ -106,7 +106,7 @@ export default async function BlogPost({
     <>
       <BlogSchema slug={slug} />
       <article>
-          <h1 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-neutral-100">
+          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-3 text-neutral-900 dark:text-neutral-100">
             {post.title}
           </h1>
           <p className="text-sm text-muted-foreground mb-8">

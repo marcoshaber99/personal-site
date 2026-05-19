@@ -81,7 +81,6 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
         ppEditorialNew: ["var(--font-pp-editorial-new)"],
-        calSans: ["var(--font-cal-sans)"],
       },
       typography: {
         DEFAULT: {
@@ -132,16 +131,6 @@ const config: Config = {
         ".font-pp-ultrabold": {
           fontFamily: "var(--font-pp-editorial-new)",
           fontWeight: "800",
-          fontStyle: "normal",
-        },
-        ".font-pp-ultrabold-italic": {
-          fontFamily: "var(--font-pp-editorial-new)",
-          fontWeight: "800",
-          fontStyle: "italic",
-        },
-        ".font-pp-ultralight": {
-          fontFamily: "var(--font-pp-editorial-new)",
-          fontWeight: "200",
           fontStyle: "normal",
         },
       };

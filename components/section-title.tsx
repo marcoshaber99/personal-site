@@ -9,7 +9,7 @@ export function SectionTitle({ title, className = "" }: SectionTitleProps) {
       className={`flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 ${className}`}
     >
       <h2
-        className="text-xl sm:text-2xl font-medium tracking-tight"
+        className="font-pp-regular text-2xl sm:text-[1.75rem] tracking-tight text-neutral-900 dark:text-neutral-100"
       >
         {title}
       </h2>

@@ -83,14 +83,6 @@
 .layout {
   @apply mx-auto max-w-3xl my-10 px-5 md:px-0;
 }
-.heading {
-  @apply font-mono text-xl font-semibold tracking-wide;
-}
-.subheading {
-  @apply font-mono text-base font-medium tracking-wide;
-}
-
-
 /* Add these new styles */
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
@@ -127,31 +119,6 @@ pre {
   counter-increment: step;
   content: counter(step);
 }
-
-@layer components {
-  .section-heading {
-    @apply font-calSans text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100;
-  }
-
-  .section-subheading {
-    @apply font-mono text-lg font-medium tracking-wide text-neutral-700 dark:text-neutral-300;
-  }
-
-  .section-container {
-    @apply relative w-full max-w-[85ch] mx-auto;
-  }
-
-  .content-grid {
-    @apply grid gap-8 sm:gap-12;
-  }
-
-  /* Refined gradient background */
-  .gradient-bg {
-    @apply fixed inset-0 -z-10 bg-background;
-  }
-}
-
-
 
 @layer base {
   * {
