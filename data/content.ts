@@ -65,13 +65,12 @@ export const workExperience: {
   description: string[];
 }[] = [
   {
-    title: "Founder & Full-Stack Developer",
-    company: "LimassolWeb",
+    title: "Independent Web Developer, LimassolWeb",
+    company: "Limassol, Cyprus",
     duration: "September 2024 – Present",
     description: [
-      "Building an independent web development practice serving local businesses in Limassol, owning the full project lifecycle from client consultation through design, build, deployment and ongoing maintenance.",
-      "Build production websites with Next.js, Astro, TypeScript and Tailwind, deployed on Vercel and Cloudflare with custom domains.",
-      "Working on a multilingual (English / Greek) restaurant site built on Next.js 15 with next-intl, tailored for the Cyprus market.",
+      "Independent web development work for clients in Limassol on a project basis, alongside personal product work. Sites built with Next.js, Astro, TypeScript, and Tailwind, deployed on Vercel and Cloudflare.",
+      "Currently working on a multilingual (English / Greek) restaurant site built on Next.js 15 with next-intl, tailored for the Cyprus market.",
     ],
   },
   {
