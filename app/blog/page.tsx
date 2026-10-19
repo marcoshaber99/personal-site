@@ -1,28 +1,29 @@
 import { Metadata } from "next";
 import { getAllPosts } from "@/lib/blog";
 import { BlogPostsList } from "@/components/blog-posts-list";
+import { Container } from "@/components/container";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Articles about web development, React, Next.js, and more.",
+  title: "Writing",
+  description: "Notes on web development, tools, and things I'm learning.",
 };
 
 export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div>
-      <div className="flex items-center gap-3 sm:gap-4 mb-3">
-        <h1 className="font-pp-regular text-3xl sm:text-4xl tracking-tight text-neutral-900 dark:text-neutral-100">
-          Blog
+    <Container>
+      <div className="pt-6 sm:pt-10">
+        <h1 className="font-display text-[2.5rem] leading-none tracking-tight text-foreground sm:text-[3rem]">
+          Writing
         </h1>
-        <div className="h-px flex-grow bg-gradient-to-r from-neutral-200 via-green-500/20 to-neutral-200 dark:from-neutral-800 dark:via-green-400/20 dark:to-neutral-800" />
+        <p className="mt-4 text-base text-muted-foreground">
+          Notes on web development, tools, and things I&apos;m learning.
+        </p>
       </div>
-      <p className="text-muted-foreground mb-10">
-        Thoughts on web development, tools, and things I&apos;m learning.
-      </p>
-
-      <BlogPostsList posts={posts} />
-    </div>
+      <div className="mt-14">
+        <BlogPostsList posts={posts} />
+      </div>
+    </Container>
   );
 }

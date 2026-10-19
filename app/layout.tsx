@@ -8,16 +8,15 @@ import { GeistMono } from "geist/font/mono";
 import { ppEditorialNew } from "@/lib/fonts";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
-import { Background } from "@/components/bg-gradient";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.marcohaber.dev"),
   title: {
-    default: "Marco Haber - Portfolio",
-    template: "%s | Marco Haber",
+    default: "Marco Haber",
+    template: "%s · Marco Haber",
   },
   description:
-    "Marco Haber — full-stack developer building production web applications and AI-powered SaaS products from Limassol, Cyprus.",
+    "Marco Haber — full-stack developer building web and AI products from Limassol, Cyprus.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -38,8 +37,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#fbfaf8" },
+    { media: "(prefers-color-scheme: dark)", color: "#121110" },
   ],
 };
 
@@ -51,17 +50,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${ppEditorialNew.variable} font-sans scroll-smooth`}
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable} ${ppEditorialNew.variable} font-sans`}
     >
-      <body className="flex flex-col min-h-screen antialiased">
+      <body className="flex min-h-screen flex-col">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Background />
-          <div className="relative z-10 flex-grow">
-            <div className="mx-auto max-w-4xl px-6 py-8 sm:px-8">
-              <Header />
-              <main>{children}</main>
-            </div>
-          </div>
+          <Header />
+          <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
         <Analytics />

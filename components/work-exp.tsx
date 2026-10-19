@@ -1,48 +1,29 @@
 import { workExperience } from "@/data/content";
-import { SectionTitle } from "./section-title";
+import { Section } from "./section";
 
 export default function WorkExp() {
   return (
-    <section className="relative">
-      <SectionTitle title="Work Experience" />
-
-      <div className="space-y-4">
-        {workExperience.map((job, index) => (
-          <div
-            key={index}
-            className="group relative"
-          >
-            {/* Subtle hover effect background */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neutral-100 dark:from-neutral-800/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-            <div className="relative rounded-xl border border-neutral-200 dark:border-neutral-800 p-4 sm:p-5 transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700 bg-background/40">
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-3">
-                <div className="space-y-1">
-                  <h3 className="text-lg font-medium">{job.title}</h3>
-                  <p className="text-base text-neutral-600 dark:text-neutral-400">
-                    {job.company}
-                  </p>
-                </div>
-                <span className="text-sm text-neutral-500 dark:text-neutral-500 mt-1 sm:mt-0">
-                  {job.duration}
-                </span>
-              </div>
-
-              <ul className="mt-3 space-y-2">
-                {job.description.map((item, itemIndex) => (
-                  <li
-                    key={itemIndex}
-                    className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600/50 dark:bg-green-400/50" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+    <Section id="experience" label="Experience">
+      <ul className="-mt-5 divide-y divide-border">
+        {workExperience.map((job) => (
+          <li key={job.title} className="py-5">
+            <div className="flex items-baseline justify-between gap-4">
+              <h3 className="text-base font-medium leading-6 text-foreground">
+                {job.title}
+              </h3>
+              <span className="shrink-0 text-sm tabular-nums text-muted-foreground">
+                {job.duration}
+              </span>
             </div>
-          </div>
+            <p className="mt-0.5 text-sm text-muted-foreground">{job.company}</p>
+            <div className="mt-3 space-y-2 text-[15px] leading-7 text-muted-foreground">
+              {job.description.map((item, i) => (
+                <p key={i}>{item}</p>
+              ))}
+            </div>
+          </li>
         ))}
-      </div>
-    </section>
+      </ul>
+    </Section>
   );
 }

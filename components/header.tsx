@@ -1,105 +1,41 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-import { ModeToggle } from "@/components/theme-toggle";
-import { socialLinks } from "@/data/social-links";
-import { motion, AnimatePresence } from "motion/react";
-import { usePathname } from "next/navigation";
-import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { socialLinks } from "@/data/social-links";
+import { Container } from "@/components/container";
 
 export function Header() {
-  const pathname = usePathname();
-  const isInBlogPost = pathname?.startsWith("/blog/") && pathname !== "/blog";
-  const isBlogIndex = pathname === "/blog";
-  const showBackLink = isInBlogPost || isBlogIndex;
-  const backHref = isInBlogPost ? "/blog" : "/";
-  const backLabel = isInBlogPost ? "Blog" : "Home";
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div className="sticky top-4 z-50 w-full flex justify-center pointer-events-none mb-12 sm:mb-16">
-      <header
-        className={cn(
-          "flex items-center justify-between transition-all duration-500 ease-in-out pointer-events-auto",
-          isScrolled
-            ? "bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl border border-white/20 dark:border-white/10 px-4 py-2 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.4)] w-full max-w-lg mx-4"
-            : "w-full max-w-4xl py-2 bg-transparent border-transparent px-0"
-        )}
-        role="banner"
-      >
-        <div className="flex items-center min-w-[80px]">
-          <AnimatePresence mode="wait">
-            {showBackLink ? (
-              <motion.div
-                key="back-link"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
-              >
-                <Link
-                  href={backHref}
-                  className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-all duration-200 group py-1.5 px-3 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                  aria-label={`Back to ${backLabel}`}
-                >
-                  <ChevronLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
-                  <span className="text-sm font-medium">{backLabel}</span>
-                </Link>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="logo"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                <Link
-                  href="/"
-                  className="font-pp-ultrabold text-xl tracking-tighter hover:opacity-70 transition-opacity"
-                >
-                  MH<span className="text-blue-600 dark:text-green-400">.</span>
-                </Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+    <Container>
+      <header className="flex items-center justify-between py-8 sm:py-10">
+        <Link
+          href="/"
+          aria-label="Home"
+          className="font-display text-[1.375rem] italic leading-none tracking-tight text-foreground transition-opacity hover:opacity-60"
+        >
+          MH
+        </Link>
 
-        <div className="flex items-center gap-2">
-          <nav
-            className="flex items-center gap-0.5 bg-neutral-100/50 dark:bg-neutral-800/40 p-1 rounded-full border border-neutral-200/50 dark:border-neutral-700/30 shadow-inner"
-            role="navigation"
-            aria-label="Social links"
+        <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-6">
+          <Link
+            href="/blog"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            {socialLinks.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 text-muted-foreground hover:text-foreground transition-all duration-200 rounded-full hover:bg-white dark:hover:bg-neutral-700 hover:shadow-sm"
-                aria-label={link.name}
-                whileHover={{ y: -1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <link.icon className="h-4 w-4" aria-hidden="true" />
-                <span className="sr-only">{link.name}</span>
-              </motion.a>
-            ))}
-          </nav>
-
-          <div className="h-6 w-[1px] bg-neutral-200 dark:bg-neutral-800 mx-1" />
-
-          <ModeToggle />
-        </div>
+            Writing
+          </Link>
+          {socialLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline"
+            >
+              {link.name}
+            </a>
+          ))}
+          <ThemeToggle />
+        </nav>
       </header>
-    </div>
+    </Container>
   );
 }

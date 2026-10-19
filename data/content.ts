@@ -13,6 +13,15 @@ export const projects: {
   isPrivate: boolean;
 }[] = [
   {
+    title: "Klio",
+    description:
+      "WhatsApp assistant for estate agents in Cyprus, live at kliohq.com and onboarding its first agents. Answers buyers in their own language (Greek, English, Russian, Hebrew) strictly from the agent's listings, qualifies budget, area and timeline as the conversation flows, hands price talk to a human, and books viewings the agent approves with one tap from their dashboard. Next.js, Convex, Vercel AI SDK with Claude, WhatsApp Business Cloud API.",
+    link: "https://kliohq.com",
+    category: "AI / SaaS",
+    date: "2025 – present",
+    isPrivate: true,
+  },
+  {
     title: "Stormchaser",
     description:
       "Quantitative weather prediction-market trading system for Kalshi. Ensemble forecasting (NWS, GFS, ECMWF) with per-city bias correction, inverse-MAE model weighting, and Student-t probability distributions over temperature brackets. Python data pipelines, PostgreSQL, automated Telegram alerts, deployed on a self-managed Hetzner VPS.",
@@ -30,14 +39,6 @@ export const projects: {
     isPrivate: true,
   },
   {
-    title: "Klio",
-    description:
-      "AI-powered WhatsApp assistant SaaS for Cyprus real estate agents, in active development. Multilingual responses (English, Greek, Russian) backed by a RAG knowledge base of Cyprus property regulations, lead qualification via tool calls, and human handoff. Next.js, Convex, Vercel AI SDK with Claude Sonnet, WhatsApp Business Cloud API.",
-    category: "AI / SaaS",
-    date: "2025 – present",
-    isPrivate: true,
-  },
-  {
     title: "Seafloor",
     description:
       "Open-source 3D maritime emissions globe visualizing six years of EU THETIS-MRV vessel CO2 data. Built with React Three Fiber, Three.js and WebGL, served from Cloudflare Pages, with a Python pipeline preparing the dataset.",
@@ -46,15 +47,6 @@ export const projects: {
     category: "Data Visualization",
     date: "2026",
     isPrivate: false,
-  },
-  {
-    title: "CurateWay",
-    description:
-      "AI-powered travel platform for discovering authentic experiences in Cyprus. Full-stack Next.js, React, TypeScript, Convex, Clerk and Stripe.",
-    link: "https://curateway.com",
-    category: "Web Application",
-    date: "2024 – present",
-    isPrivate: true,
   },
 ];
 
@@ -67,7 +59,7 @@ export const workExperience: {
   {
     title: "Independent Web Developer, LimassolWeb",
     company: "Limassol, Cyprus",
-    duration: "September 2024 – Present",
+    duration: "2024 – present",
     description: [
       "Independent web development work for clients in Limassol on a project basis, alongside personal product work. Sites built with Next.js, Astro, TypeScript, and Tailwind, deployed on Vercel and Cloudflare.",
       "Currently working on a multilingual (English / Greek) restaurant site built on Next.js 15 with next-intl, tailored for the Cyprus market.",
@@ -76,7 +68,7 @@ export const workExperience: {
   {
     title: "Software Developer",
     company: "Panaline",
-    duration: "August 2023 – June 2024",
+    duration: "2023 – 2024",
     description: [
       "Built an internal financial analysis tool in Python and Streamlit for expense tracking and allocation, used by the operations team.",
       "Automated data ingestion and expense allocation logic, reducing manual processing time on recurring reports.",
@@ -95,61 +87,59 @@ export const photographs: {
     id: 1,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6y2IjIoRRaF3HgAWc2fXiTpxs4DI0qSkmbyCd",
     alt: "Salted Sensor",
-    width: 1600,
-    height: 1200,
+    width: 4096,
+    height: 2893,
   },
   {
     id: 2,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6JslxH1Fwbnr3E04UvoSBi8mAIZlYjXgqJuOC",
     alt: "Last Swim",
-    width: 1200,
-    height: 1600,
+    width: 1700,
+    height: 2100,
   },
   {
     id: 3,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6WyChxYjIdEYqQgn7uOiWbsfj05vKH9oz8T3Z",
     alt: "Constellations",
-    width: 1200,
-    height: 1600,
+    width: 4096,
+    height: 3140,
   },
   {
     id: 4,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6BW7IcS4ELr61CagSVyDQF2O0tzbWPveXkc4B",
     alt: "Frame Work",
-    width: 1200,
-    height: 1600,
+    width: 6000,
+    height: 4000,
   },
   {
     id: 5,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6YrOcoeh9XCbxlSzwuMkPR75TrZtq6QEG4pIv",
     alt: "Fragments",
-    width: 1200,
-    height: 1600,
+    width: 1080,
+    height: 738,
   },
   {
     id: 6,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6PW6p84DQgr1Uu62LfeS0IYWAX9BkOCzyGEnv",
     alt: "Route Handler",
-    width: 1200,
-    height: 1600,
+    width: 4096,
+    height: 2729,
   },
   {
     id: 7,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr69hmI9gcvOoWstRPKm0fSEFk42d86iNCeTVcI",
     alt: "Protected Route",
-    width: 1200,
-    height: 1600,
+    width: 4096,
+    height: 2994,
   },
   {
     id: 8,
     src: "https://utfs.io/a/lllwu0d4dv/BT3tktP4ELr6TZ33pEZuslCnHKm8WQjEM5S6IYqoV9z0e3fO",
     alt: "Hot Reload",
-    width: 1200,
+    width: 900,
     height: 1600,
   },
 ];
-
-export const footerText = "Marco Haber. All rights reserved.";
 
 export const skills: Record<string, string[]> = {
   Frontend: [
@@ -160,9 +150,6 @@ export const skills: Record<string, string[]> = {
     "shadcn/ui",
     "TanStack Query",
     "React Three Fiber",
-    "HTML5",
-    "CSS3",
-    "SCSS",
   ],
   Backend: [
     "Node.js",

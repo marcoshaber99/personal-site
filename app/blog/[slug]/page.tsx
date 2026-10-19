@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { ExternalLink } from "lucide-react";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
 import { Mark } from "@/components/mark";
@@ -11,6 +10,9 @@ import { Steps, Step } from "@/components/steps";
 import { LinkCard } from "@/components/link-card";
 import BlogSchema from "@/components/blog-schema";
 import rehypePrism from "rehype-prism-plus";
+import Link from "next/link";
+import { Container } from "@/components/container";
+import { formatDate } from "@/lib/format";
 
 const components: MDXRemoteProps["components"] = {
   Mark,
@@ -22,7 +24,7 @@ const components: MDXRemoteProps["components"] = {
   code: ({ className, children }) => {
     if (!className) {
       return (
-        <code className="px-1.5 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800 font-mono text-sm">
+        <code className="rounded-[3px] bg-muted px-1.5 py-0.5 font-mono text-[0.875em] font-normal text-foreground">
           {children}
         </code>
       );
@@ -33,12 +35,11 @@ const components: MDXRemoteProps["components"] = {
   a: ({ children, href }) => (
     <a
       href={href}
-      className="font-medium text-blue-600 dark:text-green-400 hover:text-blue-800 dark:hover:text-green-300 underline decoration-blue-600 dark:decoration-green-400 decoration-2 underline-offset-2 transition-colors duration-200 inline-flex items-center"
+      className="link font-normal text-foreground"
       target={href?.startsWith("http") ? "_blank" : undefined}
       rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
     >
       {children}
-      {href?.startsWith("http") && <ExternalLink className="ml-1 h-4 w-4" />}
     </a>
   ),
 };
@@ -103,27 +104,35 @@ export default async function BlogPost({
   }
 
   return (
-    <>
+    <Container>
       <BlogSchema slug={slug} />
-      <article>
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-3 text-neutral-900 dark:text-neutral-100">
-            {post.title}
-          </h1>
-          <p className="text-sm text-muted-foreground mb-8">
-            {post.date} · {post.readTime} min read
-          </p>
-          <div className="prose dark:prose-invert max-w-none">
-            <MDXRemote
-              source={post.content}
-              components={components}
-              options={{
-                mdxOptions: {
-                  rehypePlugins: [[rehypePrism, { ignoreMissing: true }]],
-                },
-              }}
-            />
-          </div>
+      <article className="pt-6 sm:pt-10">
+        <Link
+          href="/blog"
+          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          ← Writing
+        </Link>
+        <h1 className="mt-8 font-display text-[2.25rem] leading-[1.1] tracking-tight text-foreground sm:text-[2.75rem]">
+          {post.title}
+        </h1>
+        <p className="mt-4 text-sm tabular-nums text-muted-foreground">
+          <time dateTime={post.date}>{formatDate(post.date, "long")}</time>
+          <span aria-hidden="true"> · </span>
+          {post.readTime} min read
+        </p>
+        <div className="prose prose-neutral mt-12 max-w-none dark:prose-invert prose-headings:font-medium prose-headings:tracking-tight prose-h2:mt-12 prose-h2:text-2xl prose-h3:text-xl prose-p:leading-7 prose-p:text-foreground/85 prose-strong:font-medium prose-strong:text-foreground prose-img:rounded-[3px] prose-hr:border-border prose-blockquote:border-l-border prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-muted-foreground">
+          <MDXRemote
+            source={post.content}
+            components={components}
+            options={{
+              mdxOptions: {
+                rehypePlugins: [[rehypePrism, { ignoreMissing: true }]],
+              },
+            }}
+          />
+        </div>
       </article>
-    </>
+    </Container>
   );
 }

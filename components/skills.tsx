@@ -1,27 +1,22 @@
 import { skills } from "@/data/content";
-import { SectionTitle } from "./section-title";
+import { Section } from "./section";
 
 export default function Skills() {
   return (
-    <section className="relative">
-      <SectionTitle title="Toolkit" />
-      <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 p-4 sm:p-5 bg-background/40">
-        <dl className="divide-y divide-neutral-200/70 dark:divide-neutral-800/70">
-          {Object.entries(skills).map(([category, skillList]) => (
-            <div
-              key={category}
-              className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-y-1 sm:gap-x-6 items-baseline py-3 first:pt-0 last:pb-0"
-            >
-              <dt className="text-base font-medium text-foreground">
-                {category}
-              </dt>
-              <dd className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                {skillList.join(" · ")}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
+    <Section id="toolkit" label="Toolkit">
+      <dl className="-mt-4 divide-y divide-border">
+        {Object.entries(skills).map(([category, list]) => (
+          <div
+            key={category}
+            className="grid gap-y-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-x-6"
+          >
+            <dt className="text-sm font-medium text-foreground">{category}</dt>
+            <dd className="text-sm leading-6 text-muted-foreground">
+              {list.join(" · ")}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
   );
 }

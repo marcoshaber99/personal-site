@@ -1,7 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { Copy, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React, { useEffect, useState } from "react";
+import { Check, Copy } from "lucide-react";
 
 export function CodeBlock({
   children,
@@ -10,50 +9,44 @@ export function CodeBlock({
   children?: React.ReactNode;
   className?: string;
 }) {
-  const [isCopied, setIsCopied] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const getTextContent = (node: React.ReactNode): string => {
+  const textOf = (node: React.ReactNode): string => {
     if (typeof node === "string") return node;
-    if (typeof node === "number") return node.toString();
+    if (typeof node === "number") return String(node);
     if (!node) return "";
-    if (Array.isArray(node)) return node.map(getTextContent).join("");
-    if (React.isValidElement(node)) return getTextContent(node.props.children);
+    if (Array.isArray(node)) return node.map(textOf).join("");
+    if (React.isValidElement(node)) return textOf(node.props.children);
     return "";
   };
 
-  const copyToClipboard = async () => {
-    const codeText = getTextContent(children);
-    await navigator.clipboard.writeText(codeText);
-    setIsCopied(true);
-  };
-
   useEffect(() => {
-    if (isCopied) {
-      const timer = setTimeout(() => setIsCopied(false), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [isCopied]);
+    if (!copied) return;
+    const t = setTimeout(() => setCopied(false), 1800);
+    return () => clearTimeout(t);
+  }, [copied]);
 
   return (
-    <div 
-      className={`relative group my-5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-[#f8f9fa] dark:bg-[#0e0e0e] ${className || ""}`}
+    <div
+      className={`group relative my-6 rounded-[4px] border border-border bg-muted/60 ${className ?? ""}`}
     >
-      <div className="absolute top-2.5 right-2.5 z-20">
-        <Button
-          variant="outline"
-          size="icon"
-          className="h-7 w-7 opacity-0 group-hover:opacity-100 transition-all duration-200 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm border-neutral-200 dark:border-neutral-800 hover:bg-white dark:hover:bg-neutral-800"
-          onClick={copyToClipboard}
-        >
-          {isCopied ? (
-            <Check className="h-3.5 w-3.5 text-green-600 dark:text-green-400" />
-          ) : (
-            <Copy className="h-3.5 w-3.5 text-neutral-600 dark:text-neutral-400" />
-          )}
-        </Button>
-      </div>
+      <button
+        type="button"
+        onClick={async () => {
+          await navigator.clipboard.writeText(textOf(children));
+          setCopied(true);
+        }}
+        aria-label={copied ? "Copied" : "Copy code"}
+        className="absolute right-2.5 top-2.5 z-10 inline-flex h-7 w-7 items-center justify-center rounded-[3px] text-muted-foreground opacity-0 transition-opacity hover:text-foreground focus-visible:opacity-100 group-hover:opacity-100"
+      >
+        {copied ? (
+          <Check className="h-3.5 w-3.5" strokeWidth={1.75} />
+        ) : (
+          <Copy className="h-3.5 w-3.5" strokeWidth={1.75} />
+        )}
+      </button>
       <div className="overflow-x-auto">
-        <pre className="text-[13px] sm:text-sm font-mono block p-4 leading-relaxed !m-0 !bg-transparent !border-0 overflow-visible">
+        <pre className="!m-0 block overflow-visible !border-0 !bg-transparent p-4 font-mono text-[13px] leading-relaxed sm:text-sm">
           {children}
         </pre>
       </div>
