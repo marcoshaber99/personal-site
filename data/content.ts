@@ -1,5 +1,5 @@
 export const about: string =
-  "Full-stack developer building production web applications and AI-powered SaaS products. I work in React, Next.js and TypeScript, integrate LLM APIs, and like owning a project end to end.";
+  "Full-stack developer building AI-native products: LLM agents with tool calling, RAG pipelines, and the web applications around them. I work in React, Next.js, TypeScript and Python, and like owning a project end to end.";
 
 export const tagline: string = "Building web and AI products from Limassol";
 
@@ -15,7 +15,7 @@ export const projects: {
   {
     title: "Klio",
     description:
-      "WhatsApp assistant for estate agents in Cyprus, live at kliohq.com and onboarding its first agents. Answers buyers in their own language (Greek, English, Russian, Hebrew) strictly from the agent's listings, qualifies budget, area and timeline as the conversation flows, hands price talk to a human, and books viewings the agent approves with one tap from their dashboard. Next.js, Convex, Vercel AI SDK with Claude, WhatsApp Business Cloud API.",
+      "WhatsApp assistant for estate agents in Cyprus, live at kliohq.com with a public demo. Answers buyers in their own language (Greek, English, Russian, Arabic) strictly from the agent's listings, qualifies budget, area and timeline as the conversation flows, hands price talk to a human, and books viewings the agent approves with one tap from their dashboard. Next.js, Convex, Vercel AI SDK with Claude, WhatsApp Business Cloud API.",
     link: "https://kliohq.com",
     category: "AI / SaaS",
     date: "2025 – present",
@@ -32,7 +32,7 @@ export const projects: {
   {
     title: "ProfitScan",
     description:
-      "SaaS profitability-analysis tool that ingests financial files, allocates shared expenses across transactions using configurable rules, and reports net profit per product, customer and region. Next.js, FastAPI, PostgreSQL on Neon, Cloudflare R2, Clerk. Live in production and currently being shown to small businesses in Cyprus.",
+      "SaaS profitability-analysis tool that ingests financial files, allocates shared expenses across transactions using configurable rules, and reports net profit per product, customer and region. Next.js, FastAPI, PostgreSQL on Neon, Cloudflare R2, Clerk. Live in production at profitscan.app.",
     link: "https://profitscan.app",
     category: "SaaS",
     date: "2025 – present",
